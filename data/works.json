@@ -1,0 +1,65 @@
+{
+  "_readme": "本文件由 Skill 工作台自动生成（勾了「上板」的技能 + works-extras.json 里的系统/agent 作品）。别手改——下次工作台保存会覆盖。网站项目从这里读取渲染作品板。tally=板上作品数，inventory=库存总量（含未上板），页面数字钩子二选一。",
+  "generated": "2026-07-27T01:26:10.530Z",
+  "tally": {
+    "skill": 3,
+    "system": 3,
+    "agent": 1
+  },
+  "inventory": {
+    "skill": 40,
+    "system": 3,
+    "agent": 14
+  },
+  "works": [
+    {
+      "name": "Lindsey Studio",
+      "type": "agent",
+      "desc": "Personal multi agent AI studio: 14 specialized agents, dispatch ticket orchestration, goal gated acceptance, scheduled content pipelines and a permission system. It runs my daily operations end to end.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "ERP System",
+      "type": "system",
+      "desc": "A local ERP dashboard for the whole company in 1 place: accounting with invoices, payables and expense approvals, inventory and order fulfillment, vendor payment runs, a sales pipeline and a ticket queue. Live demo on placeholder data.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "Marketing Agency System",
+      "type": "system",
+      "desc": "An operating and reporting system built in house for a marketing agency that runs many client accounts: daily and weekly reports on cost, GMV, ROI and orders per account, a live board that refreshes on a schedule, and automated data pulls, all running locally at 0 token so client numbers stay in house.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "Property Agent CRM",
+      "type": "system",
+      "desc": "A WhatsApp follow up CRM built for property agents: it works a lead list, sends scheduled follow ups, reads each reply to score intent, writes the status back, and hands anything it cannot answer to a human with an alert. Runs locally and answers only from an approved knowledge base.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "ad-video-product-check",
+      "type": "skill",
+      "desc": "Checks a TikTok or Douyin selling video against the real product and flags mismatches in size, texture and claims, with evidence frames and a verdict.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "geo-audit-suite",
+      "type": "skill",
+      "desc": "Audits how a site shows up in AI answers and search, scoring GEO and AEO visibility with a chart and a fix list.",
+      "source": "closed",
+      "github": ""
+    },
+    {
+      "name": "视频拆解",
+      "type": "skill",
+      "desc": "Breaks any TikTok or Douyin video into a clean watermark free file, full transcript, on screen text and key frames from one link.",
+      "source": "closed",
+      "github": ""
+    }
+  ]
+}

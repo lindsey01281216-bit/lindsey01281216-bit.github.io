@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="An open toolbox connecting to a full set of agent tools">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="400" cy="292" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><path d="M285 280 L515 280 L550 385 L250 385 Z" fill="#cbe0e8" fill-opacity=".065" stroke="#cbe0e8" stroke-opacity=".34" stroke-width="1.5"/>
+      <path d="M300 280 L330 218 H470 L500 280" fill="none" stroke="#cbe0e8" stroke-opacity=".42" stroke-width="1.8"/>
+      <path d="M250 280 L310 220 H490 L550 280" fill="#cbe0e8" fill-opacity=".035" stroke="#80cde9" stroke-opacity=".46" stroke-width="1.5"/>
+      <circle cx="400" cy="320" r="18" fill="#80cde9" fill-opacity=".86" stroke="#80cde9" stroke-opacity=".92" stroke-width="1.5"/><line x1="330" y1="334" x2="470" y2="334" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M315 220 C278 188 240 158 192 146" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M358 218 C344 170 324 142 292 112" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M442 218 C456 170 478 142 510 112" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M485 220 C522 188 560 158 608 146" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M400 218 C400 172 400 136 400 96" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="152" y="112" width="80" height="68" rx="16" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="254" y="76" width="80" height="68" rx="16" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="360" y="62" width="80" height="68" rx="16" fill="#cbe0e8" fill-opacity="0.08" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="466" y="76" width="80" height="68" rx="16" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="568" y="112" width="80" height="68" rx="16" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <circle cx="192" cy="146" r="13" fill="none" stroke="#cbe0e8" stroke-opacity=".5"/><path d="M185 146 h14 M192 139 v14" stroke="#80cde9" stroke-opacity=".7" stroke-width="2"/>
+      <path d="M282 124 l12-24 l12 24 Z" fill="none" stroke="#cbe0e8" stroke-opacity=".55"/>
+      <path d="M388 112 h24 v-24 h-24 Z M394 94 h12" fill="none" stroke="#80cde9" stroke-opacity=".68"/>
+      <circle cx="506" cy="110" r="14" fill="none" stroke="#cbe0e8" stroke-opacity=".55"/><circle cx="506" cy="110" r="4" fill="#80cde9" fill-opacity=".8"/>
+      <path d="M594 158 l14-24 l14 24 Z" fill="#cbe0e8" fill-opacity=".1" stroke="#cbe0e8" stroke-opacity=".45"/>
+    </g>
+</svg>

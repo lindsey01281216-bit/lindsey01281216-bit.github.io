@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Symbolic concept: one video link expands into a clean source file, transcript, on screen text and key frames as a reusable kit">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 0.5 0.5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="src" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgb(203 224 232)" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="rgb(203 224 232)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <text x="110" y="92" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" letter-spacing="0.14em" fill="rgb(203 224 232)" fill-opacity="0.55">ONE LINK</text>
+
+  <!-- Left: the single source video link -->
+  <g>
+    <circle cx="155" cy="250" r="58" fill="url(#src)"/>
+    <rect x="118" y="212" width="74" height="76" rx="14" fill="rgb(203 224 232)" fill-opacity="0.08" stroke="rgb(203 224 232)" stroke-opacity="0.55" stroke-width="1.75"/>
+    <path d="M147 234 L173 250 L147 266 Z" fill="rgb(203 224 232)" fill-opacity="0.8"/>
+    <!-- link glyph badge -->
+    <g stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.5" fill="none" stroke-linecap="round">
+      <path d="M132 300 a7 7 0 0 1 10 0 l6 6"/>
+      <path d="M156 318 a7 7 0 0 1 -10 0 l-6 -6"/>
+    </g>
+  </g>
+
+  <!-- expanding fan lines to the four outputs -->
+  <g stroke="rgb(203 224 232)" stroke-opacity="0.25" stroke-width="1.5">
+    <path d="M215 232 C300 190 340 150 400 145" fill="none"/>
+    <path d="M218 245 C310 230 350 218 400 215" fill="none"/>
+    <path d="M218 258 C310 275 350 288 400 288" fill="none"/>
+    <path d="M215 272 C300 315 340 350 400 358" fill="none"/>
+  </g>
+
+  <!-- Right: the reusable kit — four stacked component rows -->
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" letter-spacing="0.03em" fill="rgb(203 224 232)" fill-opacity="0.78">
+    <!-- clean source file -->
+    <g>
+      <rect x="400" y="123" width="290" height="46" rx="11" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <rect x="418" y="138" width="24" height="16" rx="4" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.5"/>
+      <path d="M424 146 L428 143 L432 146 L436 141" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="458" y="151">clean source</text>
+    </g>
+    <!-- transcript -->
+    <g>
+      <rect x="400" y="193" width="290" height="46" rx="11" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <g stroke="rgb(203 224 232)" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round">
+        <line x1="418" y1="210" x2="440" y2="210"/>
+        <line x1="418" y1="217" x2="436" y2="217"/>
+        <line x1="418" y1="224" x2="440" y2="224"/>
+      </g>
+      <text x="458" y="221">transcript</text>
+    </g>
+    <!-- on screen text -->
+    <g>
+      <rect x="400" y="263" width="290" height="46" rx="11" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <rect x="418" y="276" width="24" height="20" rx="4" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.6" stroke-width="1.5"/>
+      <text x="426" y="291" font-size="13" fill="rgb(203 224 232)" fill-opacity="0.85">T</text>
+      <text x="458" y="291">on screen text</text>
+    </g>
+    <!-- key frames -->
+    <g>
+      <rect x="400" y="333" width="290" height="46" rx="11" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <rect x="416" y="347" width="16" height="18" rx="3" fill="rgb(203 224 232)" fill-opacity="0.22"/>
+      <rect x="435" y="347" width="16" height="18" rx="3" fill="rgb(203 224 232)" fill-opacity="0.4"/>
+      <rect x="454" y="347" width="16" height="18" rx="3" fill="rgb(203 224 232)" fill-opacity="0.22"/>
+      <text x="486" y="361">key frames</text>
+    </g>
+  </g>
+
+  <!-- kit bracket, labeling the whole stack as one package -->
+  <g>
+    <path d="M708 123 q10 0 10 12 v118 q0 12 12 12 q-12 0 -12 12 v118 q0 12 -10 12" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.35" stroke-width="1.5"/>
+    <text x="742" y="256" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" letter-spacing="0.14em" fill="rgb(203 224 232)" fill-opacity="0.6" transform="rotate(90 742 256)" text-anchor="middle">REUSABLE KIT</text>
+  </g>
+</svg>

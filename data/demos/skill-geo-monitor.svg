@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Brand mentions appearing across AI answer bubbles with a rising trend">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="400" cy="238" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><g><rect x="108" y="112" width="170" height="90" rx="18" fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><path d="M133 202 l-13 14 l4-19" fill="#cbe0e8" fill-opacity=".055" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.5"/><circle cx="136" cy="140" r="4" fill="#80cde9" fill-opacity="0.78"/><line x1="150" y1="137" x2="258" y2="137" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="136" y1="155" x2="244" y2="155" stroke="#cbe0e8" stroke-opacity="0.15" stroke-width="4" stroke-linecap="round"/></g><g><rect x="314" y="96" width="170" height="90" rx="18" fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><path d="M339 186 l-13 14 l4-19" fill="#cbe0e8" fill-opacity=".055" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.5"/><circle cx="342" cy="124" r="4" fill="#80cde9" fill-opacity="0.78"/><line x1="356" y1="121" x2="464" y2="121" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="342" y1="139" x2="450" y2="139" stroke="#cbe0e8" stroke-opacity="0.15" stroke-width="4" stroke-linecap="round"/></g><g><rect x="522" y="122" width="170" height="90" rx="18" fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><path d="M547 212 l-13 14 l4-19" fill="#cbe0e8" fill-opacity=".055" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.5"/><circle cx="550" cy="150" r="4" fill="#80cde9" fill-opacity="0.78"/><line x1="564" y1="147" x2="672" y2="147" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="550" y1="165" x2="658" y2="165" stroke="#cbe0e8" stroke-opacity="0.15" stroke-width="4" stroke-linecap="round"/></g>
+      <circle cx="156" cy="145" r="6" fill="#80cde9" fill-opacity="0.9"/><circle cx="364" cy="129" r="6" fill="#80cde9" fill-opacity="0.72"/><circle cx="574" cy="155" r="6" fill="#80cde9" fill-opacity="0.54"/>
+      <path d="M156 202 C230 230 262 230 322 250" fill="none" stroke="#cbe0e8" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M398 186 C398 214 398 222 398 250" fill="none" stroke="#80cde9" stroke-opacity="0.45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M574 212 C528 230 492 238 468 250" fill="none" stroke="#cbe0e8" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="124" y="280" width="552" height="120" rx="16" fill="#cbe0e8" fill-opacity="0.04" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <path d="M154 364 C214 352 254 368 310 330 C368 290 408 344 470 290 C522 246 574 286 646 228" fill="none" stroke="#80cde9" stroke-opacity="0.72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="646" cy="228" r="7" fill="#80cde9" fill-opacity="0.9"/><line x1="154" y1="310" x2="646" y2="310" stroke="#cbe0e8" stroke-opacity="0.12" stroke-width="1" stroke-linecap="round"/><line x1="154" y1="350" x2="646" y2="350" stroke="#cbe0e8" stroke-opacity="0.1" stroke-width="1" stroke-linecap="round"/>
+    </g>
+</svg>

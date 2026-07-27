@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A modular weekly report canvas being composed from draggable blocks">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="420" cy="250" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><g><rect x="102" y="90" width="596" height="320" rx="14" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="102" y1="124" x2="698" y2="124" stroke="#cbe0e8" stroke-opacity="0.22" stroke-width="1.3" stroke-linecap="round"/><circle cx="122" cy="107" r="3" fill="#80cde9" fill-opacity="0.5"/><circle cx="135" cy="107" r="3" fill="#cbe0e8" fill-opacity=".25"/><circle cx="148" cy="107" r="3" fill="#cbe0e8" fill-opacity=".16"/></g>
+      <rect x="130" y="154" width="164" height="100" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="316" y="154" width="150" height="100" rx="12" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="488" y="154" width="180" height="100" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <rect x="130" y="276" width="250" height="104" rx="12" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="402" y="276" width="266" height="104" rx="12" fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <g fill="#cbe0e8" fill-opacity=".16"><rect x="154" y="205" width="18" height="28" rx="3"/><rect x="180" y="190" width="18" height="43" rx="3"/><rect x="206" y="176" width="18" height="57" rx="3"/></g>
+      <path d="M426 346 C462 324 504 358 548 316 C582 282 614 304 646 288" fill="none" stroke="#80cde9" stroke-opacity="0.68" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="338" y1="180" x2="436" y2="180" stroke="#cbe0e8" stroke-opacity="0.18" stroke-width="5" stroke-linecap="round"/><line x1="338" y1="198" x2="416" y2="198" stroke="#cbe0e8" stroke-opacity="0.12" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="294" cy="154" r="5" fill="#80cde9" fill-opacity="0.9"/><circle cx="466" cy="154" r="5" fill="#80cde9" fill-opacity="0.62"/><circle cx="380" cy="276" r="5" fill="#80cde9" fill-opacity="0.52"/><circle cx="668" cy="276" r="5" fill="#80cde9" fill-opacity="0.72"/>
+      <path d="M470 112 h46 M493 89 v46" stroke="#80cde9" stroke-opacity=".48" stroke-width="1.5"/>
+    </g>
+</svg>

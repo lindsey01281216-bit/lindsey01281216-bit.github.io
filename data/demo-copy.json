@@ -1,0 +1,30 @@
+{
+  "_readme": "手写的 demo 卡显示覆盖层，归 Lindsey 所有、可手改。key = works.json 里的技术名；命中则卡片标题用 displayName、正文用 pipeline 流程（样式A：一行箭头流）。works.json 是 Skill 工作台自动生成、不能手改，所以人读得懂的展示文案放这层。经内容审核官过审、文案官产出（2026-07-27）。",
+  "Lindsey Studio": {
+    "image": "agent-lindsey-studio.svg"
+  },
+  "ERP System": {
+    "image": "system-erp.svg"
+  },
+  "Marketing Agency System": {
+    "image": "system-marketing-agency.svg"
+  },
+  "Property Agent CRM": {
+    "image": "system-property-crm.svg"
+  },
+  "ad-video-product-check": {
+    "displayName": "Catch Videos That Oversell",
+    "pipeline": ["Load video and real product", "Pull key frames", "Compare frame by frame against the truth", "Gap report and verdict"],
+    "image": "skill-ad-video-product-check.svg"
+  },
+  "视频拆解": {
+    "displayName": "Turn Any Video Into a Reusable Kit",
+    "pipeline": ["Paste a video link", "Pull watermark free source", "Transcribe and OCR on screen text", "Grab key frames", "Package the reusable kit"],
+    "image": "skill-video-breakdown.svg"
+  },
+  "geo-audit-suite": {
+    "displayName": "Check How Well GEO Surfaces Your Site",
+    "pipeline": ["Enter a site URL", "Crawl and run AEO checks", "Score GEO visibility", "Ranked fix list"],
+    "image": "skill-geo-audit-suite.svg"
+  }
+}

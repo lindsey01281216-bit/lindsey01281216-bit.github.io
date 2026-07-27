@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A data backup flywheel accumulating layers without loss">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="400" cy="250" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><circle cx="400" cy="250" r="142" fill="#cbe0e8" fill-opacity=".02" stroke="#cbe0e8" stroke-opacity=".17" stroke-width="1.5"/>
+      <circle cx="400" cy="250" r="104" fill="none" stroke="#cbe0e8" stroke-opacity=".22" stroke-width="18"/>
+      <path d="M400 146 A104 104 0 1 1 312 305" fill="none" stroke="#80cde9" stroke-opacity=".42" stroke-width="18" stroke-linecap="round"/>
+      <path d="M294 282 l6 40 l36-18" fill="#80cde9" fill-opacity=".48"/>
+      <rect x="338" y="202" width="124" height="96" rx="12" fill="#cbe0e8" fill-opacity="0.08" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="358" y1="228" x2="442" y2="228" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="6" stroke-linecap="round"/><line x1="358" y1="248" x2="430" y2="248" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="6" stroke-linecap="round"/><line x1="358" y1="268" x2="418" y2="268" stroke="#cbe0e8" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
+      <g><rect x="180" y="128" width="108" height="54" rx="10" fill="#cbe0e8" fill-opacity="0.04" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="518" y="128" width="108" height="54" rx="10" fill="#cbe0e8" fill-opacity="0.05" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="536" y="328" width="108" height="54" rx="10" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="160" y="328" width="108" height="54" rx="10" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/></g>
+      <circle cx="254" cy="176" r="4" fill="#80cde9" fill-opacity="0.9"/><circle cx="568" cy="180" r="4" fill="#80cde9" fill-opacity="0.7"/><circle cx="548" cy="344" r="4" fill="#80cde9" fill-opacity="0.6"/>
+    </g>
+</svg>

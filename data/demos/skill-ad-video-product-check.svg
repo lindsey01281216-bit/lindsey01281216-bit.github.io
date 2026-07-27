@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Symbolic concept: comparing a selling video against the real product frame by frame to reach a verdict">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 0.5 0.5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgb(203 224 232)" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="rgb(203 224 232)" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="rgb(203 224 232)" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="verdictGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgb(203 224 232)" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="rgb(203 224 232)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- faint dimension grid, restraint -->
+  <g stroke="rgb(203 224 232)" stroke-opacity="0.05">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+
+  <text x="110" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" letter-spacing="0.14em" fill="rgb(203 224 232)" fill-opacity="0.55">THE VIDEO</text>
+  <text x="470" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" letter-spacing="0.14em" fill="rgb(203 224 232)" fill-opacity="0.55">THE REAL PRODUCT</text>
+
+  <!-- Left: video frame (the claim) -->
+  <g>
+    <rect x="110" y="150" width="210" height="200" rx="14" fill="rgb(203 224 232)" fill-opacity="0.05" stroke="rgb(203 224 232)" stroke-opacity="0.35"/>
+    <!-- play glyph -->
+    <circle cx="215" cy="230" r="26" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.5" stroke-width="1.5"/>
+    <path d="M206 218 L232 230 L206 242 Z" fill="rgb(203 224 232)" fill-opacity="0.7"/>
+    <!-- an oversold, exaggerated silhouette (bigger) -->
+    <rect x="150" y="285" width="130" height="46" rx="8" fill="rgb(203 224 232)" fill-opacity="0.16"/>
+    <!-- scanning line -->
+    <rect x="110" y="240" width="210" height="20" fill="url(#scan)"/>
+  </g>
+
+  <!-- Right: real product frame (the truth) -->
+  <g>
+    <rect x="470" y="150" width="210" height="200" rx="14" fill="rgb(203 224 232)" fill-opacity="0.05" stroke="rgb(203 224 232)" stroke-opacity="0.35"/>
+    <circle cx="575" cy="230" r="26" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <!-- the true, smaller silhouette -->
+    <rect x="530" y="292" width="90" height="39" rx="8" fill="rgb(203 224 232)" fill-opacity="0.28"/>
+  </g>
+
+  <!-- Center compare axis with per-dimension checkpoints -->
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" letter-spacing="0.05em" text-anchor="middle">
+    <line x1="400" y1="160" x2="400" y2="340" stroke="rgb(203 224 232)" stroke-opacity="0.22" stroke-width="1.5"/>
+    <!-- size: mismatch -->
+    <circle cx="400" cy="188" r="6" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.5"/>
+    <line x1="397" y1="185" x2="403" y2="191" stroke="rgb(203 224 232)" stroke-opacity="0.8" stroke-width="1.5"/>
+    <line x1="403" y1="185" x2="397" y2="191" stroke="rgb(203 224 232)" stroke-opacity="0.8" stroke-width="1.5"/>
+    <text x="400" y="176" fill="rgb(203 224 232)" fill-opacity="0.6">size</text>
+
+    <circle cx="400" cy="250" r="6" fill="rgb(203 224 232)" fill-opacity="0.55"/>
+    <text x="400" y="238" fill="rgb(203 224 232)" fill-opacity="0.6">texture</text>
+
+    <circle cx="400" cy="312" r="6" fill="rgb(203 224 232)" fill-opacity="0.55"/>
+    <text x="400" y="330" fill="rgb(203 224 232)" fill-opacity="0.6">claims</text>
+  </g>
+
+  <!-- Verdict landing -->
+  <g text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <circle cx="400" cy="420" r="46" fill="url(#verdictGlow)"/>
+    <circle cx="400" cy="420" r="30" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.75"/>
+    <path d="M389 420 l7 8 l15 -17" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.9" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="470" y="424" text-anchor="start" font-size="16" letter-spacing="0.12em" fill="rgb(203 224 232)" fill-opacity="0.75">VERDICT</text>
+  </g>
+</svg>
