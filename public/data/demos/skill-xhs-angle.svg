@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A lens selecting one strong angle from real source material">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="398" cy="250" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><g><rect x="94" y="130" width="126" height="92" rx="12" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="114" y1="155" x2="183.3" y2="155" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="114" y1="168" x2="161.88" y2="168" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="114" y1="181" x2="174.48" y2="181" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/></g><g><rect x="118" y="228" width="126" height="92" rx="12" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="138" y1="253" x2="207.3" y2="253" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="138" y1="266" x2="185.88" y2="266" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="138" y1="279" x2="198.48" y2="279" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/></g><g><rect x="86" y="326" width="126" height="72" rx="12" fill="#cbe0e8" fill-opacity="0.045" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="106" y1="351" x2="175.3" y2="351" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="106" y1="364" x2="153.88" y2="364" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="106" y1="377" x2="166.48" y2="377" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/></g>
+      <path d="M244 274 C296 274 310 266 336 258" fill="none" stroke="#cbe0e8" stroke-opacity="0.38" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <g><circle cx="400" cy="250" r="72" fill="#cbe0e8" fill-opacity=".035" stroke="#80cde9" stroke-opacity=".64" stroke-width="1.8"/><line x1="451.84" y1="301.84" x2="504.4" y2="354.4" stroke="#80cde9" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/></g>
+      <path d="M450 198 L676 118 L590 250 L676 382 L450 302 Z" fill="#80cde9" fill-opacity=".055" stroke="#80cde9" stroke-opacity=".26" stroke-width="1.5"/>
+      <rect x="546" y="194" width="126" height="112" rx="14" fill="#cbe0e8" fill-opacity="0.08" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><circle cx="578" cy="222" r="5" fill="#80cde9" fill-opacity="0.9"/><line x1="596" y1="218" x2="648" y2="218" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="596" y1="238" x2="636" y2="238" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="596" y1="258" x2="654" y2="258" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="400" cy="250" r="34" fill="none" stroke="#80cde9" stroke-opacity=".35" stroke-dasharray="4 6"/>
+    </g>
+</svg>

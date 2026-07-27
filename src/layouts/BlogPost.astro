@@ -1,0 +1,140 @@
+---
+const { frontmatter, slug } = Astro.props;
+const site = 'https://lindseyaitech.com';
+const url = `${site}/blog/${slug}/`;
+const headline = frontmatter.headline || frontmatter.title;
+const metaTitle = frontmatter.metaTitle || `${frontmatter.title} | Lindsey`;
+const img = `${site}/logo_app_website.png`;
+const pub = (frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)).toISOString().slice(0, 10);
+const upd = frontmatter.updatedDate
+  ? (frontmatter.updatedDate instanceof Date ? frontmatter.updatedDate : new Date(frontmatter.updatedDate)).toISOString().slice(0, 10)
+  : pub;
+
+const graph = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${site}/blog/` },
+      { "@type": "ListItem", "position": 3, "name": headline, "item": url },
+    ],
+  },
+  {
+    "@type": "BlogPosting",
+    "@id": `${url}#post`,
+    "headline": headline,
+    "description": frontmatter.description,
+    "url": url,
+    "inLanguage": "en",
+    "datePublished": pub,
+    "dateModified": upd,
+    "author": { "@type": "Person", "name": "Lindsey", "jobTitle": "AI Architect", "url": `${site}/` },
+    "publisher": { "@type": "Person", "name": "Lindsey" },
+    "mainEntityOfPage": url,
+  },
+];
+if (frontmatter.faq && frontmatter.faq.length) {
+  graph.push({
+    "@type": "FAQPage",
+    "mainEntity": frontmatter.faq.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  });
+}
+const jsonld = { "@context": "https://schema.org", "@graph": graph };
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{metaTitle}</title>
+  <meta name="description" content={frontmatter.description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={url} />
+  <link rel="icon" href="/logo_app_website.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lindsey" />
+  <meta property="og:title" content={headline} />
+  <meta property="og:description" content={frontmatter.description} />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content={img} />
+  <meta property="article:published_time" content={`${pub}T00:00:00Z`} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={headline} />
+  <meta name="twitter:description" content={frontmatter.description} />
+  <meta name="twitter:image" content={img} />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/case/demos.css" />
+  <style>
+    .article-wrap { width: min(92vw, 820px); margin: 0 auto; }
+    .art-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:20px; color:rgb(233 240 244 / .9); font-size:10px; letter-spacing:.24em; text-transform:uppercase; }
+    .art-eyebrow::before { content:""; width:34px; height:1px; background:rgb(176 217 234 / .45); }
+    .art-h1 { margin:0; color:var(--ink); font-size:clamp(30px,4.2vw,50px); font-weight:500; letter-spacing:.01em; line-height:1.14; }
+    .art-meta { margin:18px 0 0; color:rgb(233 240 244 / .9); font-size:13px; letter-spacing:.02em; }
+    .article-body { margin-top:36px; }
+    .article-body p { color:var(--ink); font-size:clamp(15px,1.15vw,17px); line-height:1.75; margin:0 0 20px; }
+    .article-body a { color:#9fdcee; text-decoration:underline; text-underline-offset:2px; }
+    .art-h2, .article-body h2 { margin:44px 0 16px; color:var(--ink); font-size:clamp(21px,2.2vw,28px); font-weight:500; letter-spacing:-.01em; line-height:1.22; }
+    .art-h3, .article-body h3 { margin:30px 0 10px; color:var(--ink); font-size:clamp(17px,1.5vw,20px); font-weight:500; }
+    .article-body ol, .article-body ul { color:var(--ink); font-size:clamp(15px,1.15vw,17px); line-height:1.7; padding-left:22px; margin:0 0 20px; }
+    .article-body li { margin:0 0 10px; }
+    .answer-block { margin:0 0 24px; padding:20px 24px; border-left:3px solid rgb(128 205 233 / .8); border-radius:12px; background:linear-gradient(135deg, rgb(16 21 26 / .82), rgb(7 10 13 / .78)); color:var(--ink); font-size:clamp(16px,1.3vw,19px); line-height:1.65; }
+    .article-body blockquote { margin:0 0 24px; padding:20px 24px; border-left:3px solid rgb(128 205 233 / .8); border-radius:12px; background:linear-gradient(135deg, rgb(16 21 26 / .82), rgb(7 10 13 / .78)); color:var(--ink); font-size:clamp(16px,1.3vw,19px); line-height:1.65; }
+    .table-wrap { margin:0 0 24px; overflow-x:auto; border:1px solid rgb(205 228 237 / .13); border-radius:16px; }
+    .article-body table { width:100%; border-collapse:collapse; font-size:14px; }
+    .article-body th, .article-body td { padding:14px 16px; text-align:left; border-bottom:1px solid rgb(205 228 237 / .1); color:var(--ink); vertical-align:top; }
+    .article-body th { color:rgb(189 230 245 / .9); font-weight:500; background:rgb(255 255 255 / .03); }
+    .article-body tr:last-child td { border-bottom:0; }
+    .faq-item { border:1px solid rgb(205 228 237 / .13); border-radius:20px; background:linear-gradient(135deg, rgb(16 21 26 / .82), rgb(7 10 13 / .78)); overflow:hidden; margin:0 0 14px; }
+    .faq-q { width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:clamp(18px,2.4vw,24px); color:var(--ink); font-size:clamp(15px,1.4vw,18px); font-weight:500; cursor:pointer; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
+    .faq-q::after { content:"+"; flex:0 0 auto; color:rgb(189 230 245 / .7); font-size:24px; transition:transform 250ms var(--ease); }
+    .faq-item[open] .faq-q::after { transform:rotate(45deg); }
+    .faq-a { margin:0; padding:0 clamp(20px,3vw,26px) clamp(20px,3vw,26px); color:var(--ink); font-size:clamp(14px,1.2vw,16px); line-height:1.7; }
+    .faq-q > span { pointer-events:none; }
+  </style>
+</head>
+<body>
+  <header class="page-top">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <div class="brand">
+        <img src="/logo_app_website.png" alt="Lindsey logo" />
+        <div class="brand-copy"><span class="brand-name">Lindsey</span><span class="brand-meta">AI ARCHITECT · MALAYSIA</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/case/">Case</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div class="nav-spacer" aria-hidden="true"></div>
+    </nav>
+  </header>
+  <main class="site-content">
+    <article class="content-section" style="padding-top:clamp(46px,8vw,90px)">
+      <div class="article-wrap reveal">
+        <p class="art-eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a>{frontmatter.kicker ? ` · ${frontmatter.kicker}` : ''}</p>
+        <h1 class="art-h1">{frontmatter.title}</h1>
+        {frontmatter.metaLine && <p class="art-meta">{frontmatter.metaLine}</p>}
+        <div class="article-body">
+          <slot />
+        </div>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Lindsey · Full stack marketer turned AI architect · Malaysia. Built and managed by AI.</span>
+        <div class="footer-links"><a href="mailto:lindsey01281216@gmail.com">Email</a><a href="https://www.linkedin.com/in/jiaqingyang-lindsey/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/lindsey01281216-bit" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </footer>
+  </main>
+  <script is:inline>document.querySelectorAll(".reveal").forEach(function(i){i.classList.add("is-visible");});</script>
+</body>
+</html>

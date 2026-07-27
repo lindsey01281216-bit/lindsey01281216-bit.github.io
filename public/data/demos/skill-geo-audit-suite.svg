@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Symbolic concept: auditing how a site surfaces across AI answers, scoring visibility and returning a ranked fix list">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 0.5 0.5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="rgb(203 224 232)" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="rgb(203 224 232)" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgb(203 224 232)" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="rgb(203 224 232)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <text x="110" y="88" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" letter-spacing="0.14em" fill="rgb(203 224 232)" fill-opacity="0.55">YOUR SITE IN AI ANSWERS</text>
+
+  <!-- Site hub on the left, radiating into AI answer nodes -->
+  <g>
+    <circle cx="150" cy="250" r="60" fill="url(#hub)"/>
+    <circle cx="150" cy="250" r="30" fill="rgb(203 224 232)" fill-opacity="0.1" stroke="rgb(203 224 232)" stroke-opacity="0.6" stroke-width="1.75"/>
+    <!-- globe glyph -->
+    <circle cx="150" cy="250" r="17" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.25"/>
+    <line x1="133" y1="250" x2="167" y2="250" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.25"/>
+    <ellipse cx="150" cy="250" rx="7" ry="17" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.7" stroke-width="1.25"/>
+  </g>
+
+  <!-- connecting rays to answer nodes -->
+  <g stroke="rgb(203 224 232)" stroke-opacity="0.28" stroke-width="1.5">
+    <line x1="200" y1="230" x2="360" y2="160"/>
+    <line x1="205" y1="250" x2="360" y2="250"/>
+    <line x1="200" y1="270" x2="360" y2="340"/>
+  </g>
+
+  <!-- three AI answer surfaces, each a small card with a presence dot -->
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" letter-spacing="0.04em">
+    <g>
+      <rect x="360" y="138" width="150" height="46" rx="10" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <circle cx="382" cy="161" r="5" fill="rgb(203 224 232)" fill-opacity="0.85"/>
+      <line x1="398" y1="155" x2="492" y2="155" stroke="rgb(203 224 232)" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+      <line x1="398" y1="168" x2="470" y2="168" stroke="rgb(203 224 232)" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g>
+      <rect x="360" y="227" width="150" height="46" rx="10" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <circle cx="382" cy="250" r="5" fill="rgb(203 224 232)" fill-opacity="0.45"/>
+      <line x1="398" y1="244" x2="492" y2="244" stroke="rgb(203 224 232)" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+      <line x1="398" y1="257" x2="460" y2="257" stroke="rgb(203 224 232)" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g>
+      <rect x="360" y="316" width="150" height="46" rx="10" fill="rgb(203 224 232)" fill-opacity="0.06" stroke="rgb(203 224 232)" stroke-opacity="0.3"/>
+      <circle cx="382" cy="339" r="5" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.5" stroke-width="1.5"/>
+      <line x1="398" y1="333" x2="480" y2="333" stroke="rgb(203 224 232)" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+      <line x1="398" y1="346" x2="452" y2="346" stroke="rgb(203 224 232)" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Score ring (visibility score) -->
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" text-anchor="middle">
+    <circle cx="640" cy="185" r="52" fill="none" stroke="rgb(203 224 232)" stroke-opacity="0.12" stroke-width="8"/>
+    <path d="M640 133 A52 52 0 1 1 588 185" fill="none" stroke="url(#ring)" stroke-width="8" stroke-linecap="round"/>
+    <text x="640" y="182" font-size="30" letter-spacing="-0.02em" fill="rgb(203 224 232)" fill-opacity="0.92">72</text>
+    <text x="640" y="204" font-size="12" letter-spacing="0.16em" fill="rgb(203 224 232)" fill-opacity="0.5">SCORE</text>
+  </g>
+
+  <!-- Ranked fix list -->
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" letter-spacing="0.02em" fill="rgb(203 224 232)" fill-opacity="0.7">
+    <text x="588" y="272" font-size="12" letter-spacing="0.16em" fill="rgb(203 224 232)" fill-opacity="0.5">FIX LIST</text>
+    <g>
+      <text x="588" y="300">1</text>
+      <line x1="606" y1="296" x2="700" y2="296" stroke="rgb(203 224 232)" stroke-opacity="0.3" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g>
+      <text x="588" y="326">2</text>
+      <line x1="606" y1="322" x2="686" y2="322" stroke="rgb(203 224 232)" stroke-opacity="0.24" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g>
+      <text x="588" y="352">3</text>
+      <line x1="606" y1="348" x2="670" y2="348" stroke="rgb(203 224 232)" stroke-opacity="0.18" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

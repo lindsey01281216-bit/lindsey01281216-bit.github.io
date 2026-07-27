@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A mobile post passing through a pre-publish quality gate">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="400" cy="250" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><g><rect x="112" y="108" width="146" height="276" rx="24" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="124" y="130" width="122" height="226" rx="13" fill="#cbe0e8" fill-opacity=".035" stroke="#cbe0e8" stroke-opacity=".18"/><circle cx="185" cy="368" r="4" fill="#cbe0e8" fill-opacity=".35"/></g><rect x="130" y="146" width="110" height="110" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><line x1="136" y1="282" x2="228" y2="282" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="136" y1="299" x2="206" y2="299" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/><line x1="136" y1="316" x2="220" y2="316" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+      <line x1="276" y1="250" x2="342" y2="250" stroke="#80cde9" stroke-opacity="0.72" stroke-width="1.8" stroke-linecap="round"/><path d="M333 254.95 L342 250 L333 245.05" fill="none" stroke="#80cde9" stroke-opacity=".84" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M350 128 H468 V372 H350" fill="#cbe0e8" fill-opacity=".025" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.5"/>
+      <line x1="374" y1="174" x2="442" y2="174" stroke="#cbe0e8" stroke-opacity="0.15" stroke-width="5" stroke-linecap="round"/><line x1="374" y1="224" x2="430" y2="224" stroke="#cbe0e8" stroke-opacity="0.13" stroke-width="5" stroke-linecap="round"/><line x1="374" y1="274" x2="438" y2="274" stroke="#cbe0e8" stroke-opacity="0.13" stroke-width="5" stroke-linecap="round"/><line x1="374" y1="324" x2="420" y2="324" stroke="#cbe0e8" stroke-opacity="0.1" stroke-width="5" stroke-linecap="round"/>
+      <path d="M350 170 l4.08 4.08 l8.16 -9.520000000000001" fill="none" stroke="#80cde9" stroke-opacity="0.9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M350 220 l4.08 4.08 l8.16 -9.520000000000001" fill="none" stroke="#80cde9" stroke-opacity="0.9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M350 270 l4.08 4.08 l8.16 -9.520000000000001" fill="none" stroke="#80cde9" stroke-opacity="0.9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M350 320 l4.08 4.08 l8.16 -9.520000000000001" fill="none" stroke="#80cde9" stroke-opacity="0.9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="478" y1="250" x2="542" y2="250" stroke="#80cde9" stroke-opacity="0.72" stroke-width="1.8" stroke-linecap="round"/><path d="M533 254.95 L542 250 L533 245.05" fill="none" stroke="#80cde9" stroke-opacity=".84" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="622" cy="250" r="58" fill="#80cde9" fill-opacity=".055" stroke="#80cde9" stroke-opacity=".55" stroke-width="1.8"/>
+      <path d="M596 248 l9.600000000000001 9.600000000000001 l19.200000000000003 -22.400000000000002" fill="none" stroke="#80cde9" stroke-opacity="0.9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>

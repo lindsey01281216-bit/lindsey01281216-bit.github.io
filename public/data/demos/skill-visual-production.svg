@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="One creative canvas producing an illustration, carousel, and diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="390" cy="250" rx="170" ry="150" fill="url(#focus)" filter="url(#softGlow)"/>
+  <g><rect x="94" y="126" width="238" height="248" rx="18" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <circle cx="213" cy="228" r="58" fill="#80cde9" fill-opacity=".08" stroke="#80cde9" stroke-opacity=".35"/>
+      <path d="M156 318 L198 266 L226 294 L258 246 L298 318 Z" fill="#cbe0e8" fill-opacity=".12" stroke="#cbe0e8" stroke-opacity=".36"/>
+      <path d="M332 196 C392 168 416 156 458 148" fill="none" stroke="#80cde9" stroke-opacity="0.44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M332 250 C398 250 424 250 470 250" fill="none" stroke="#80cde9" stroke-opacity="0.54" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M332 304 C392 332 416 344 458 352" fill="none" stroke="#80cde9" stroke-opacity="0.44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="458" y="100" width="192" height="104" rx="14" fill="#cbe0e8" fill-opacity="0.05" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><circle cx="514" cy="152" r="28" fill="#80cde9" fill-opacity=".09"/><path d="M488 180 l24-28 l18 18 l22-34 l30 44" fill="none" stroke="#cbe0e8" stroke-opacity=".4"/>
+      <rect x="470" y="220" width="154" height="70" rx="12" fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><rect x="488" y="234" width="154" height="70" rx="12" fill="#cbe0e8" fill-opacity="0.04" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+      <rect x="458" y="320" width="192" height="86" rx="14" fill="#cbe0e8" fill-opacity="0.05" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/><circle cx="500" cy="362" r="8" fill="#80cde9" fill-opacity=".86" stroke="#80cde9" stroke-opacity=".92" stroke-width="1.5"/><circle cx="552" cy="344" r="8" fill="#cbe0e8" fill-opacity=".16" stroke="#cbe0e8" stroke-opacity=".56" stroke-width="1.5"/><circle cx="604" cy="372" r="8" fill="#cbe0e8" fill-opacity=".16" stroke="#cbe0e8" stroke-opacity=".56" stroke-width="1.5"/><line x1="508" y1="360" x2="544" y2="346" stroke="#cbe0e8" stroke-opacity="0.35" stroke-width="1.5" stroke-linecap="round"/><line x1="560" y1="348" x2="596" y2="368" stroke="#cbe0e8" stroke-opacity="0.35" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+</svg>
