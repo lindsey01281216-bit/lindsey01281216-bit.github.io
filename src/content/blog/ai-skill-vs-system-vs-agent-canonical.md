@@ -1,7 +1,7 @@
 ---
 title: "AI skill vs system vs agent（本周canonical）"
 description: "--- title: \"What is the difference between an AI skill, an AI system, and an AI agent?\" titletag: \"AI Skill vs System vs Agent: The Difference | Lindsey\" metade"
-pubDate: 2026-07-31
+pubDate: 2026-08-04
 ---
 ---
 title: "What is the difference between an AI skill, an AI system, and an AI agent?"
