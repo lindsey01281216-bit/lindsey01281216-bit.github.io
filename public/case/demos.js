@@ -57,13 +57,22 @@
     return '<div class="demo-empty">' + esc(label) + "</div>";
   }
 
+  // 26-08-04：数字改从云端接口取，Lindsey 在工作台点「上线」后网站立刻反映，不用再改仓库。
+  // 接口挂了就回落到仓库里的静态文件，页面不会白屏。
+  var API = "https://lindsey-site-api.lindsey01281216.workers.dev";
+  function live(kind, fallback, required) {
+    return fetch(API + "/" + kind, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .catch(function () {
+        return fetch(fallback, { cache: "no-store" })
+          .then(function (r) { return r.ok ? r.json() : (required ? Promise.reject(r.status) : {}); })
+          .catch(function (e) { return required ? Promise.reject(e) : {}; });
+      });
+  }
+
   Promise.all([
-    fetch("/data/works.json", { cache: "no-store" }).then(function (r) {
-      return r.ok ? r.json() : Promise.reject(r.status);
-    }),
-    fetch("/data/demo-copy.json", { cache: "no-store" })
-      .then(function (r) { return r.ok ? r.json() : {}; })
-      .catch(function () { return {}; })
+    live("works", "/data/works.json", true),
+    live("demos", "/data/demo-copy.json", false)
   ])
     .then(function (res) {
       var data = res[0];
