@@ -149,7 +149,6 @@ const jsonld = { "@context": "https://schema.org", "@graph": graph };
           <section class="faq-section">
             <h2 class="faq-h">FAQ</h2>
             {frontmatter.faq.map((f) => (
-              {/* open 是必须的：收起来她看到的是「只有问题没有答案」（26-08-04） */}
               <details class="faq-item" open>
                 <summary class="faq-q"><span>{f.q}</span></summary>
                 <p class="faq-a">{f.a}</p>
