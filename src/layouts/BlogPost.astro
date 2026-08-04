@@ -134,7 +134,7 @@ const jsonld = { "@context": "https://schema.org", "@graph": graph };
           <section class="faq-section">
             <h2 class="faq-h">FAQ</h2>
             {frontmatter.faq.map((f) => (
-              <details class="faq-item">
+              <details class="faq-item" open>
                 <summary class="faq-q"><span>{f.q}</span></summary>
                 <p class="faq-a">{f.a}</p>
               </details>
