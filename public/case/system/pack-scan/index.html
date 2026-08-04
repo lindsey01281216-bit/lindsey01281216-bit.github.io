@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Imbas Bungkusan</title>
+<style>
+  /* 面向仓库入门安卓机：不用框架、不用动画、强对比（光线差、戴手套）。
+     尺寸一律 clamp(最小,随屏幕,最大) —— 工人手机屏幕大小不一，不能锁死。*/
+  :root{--bg:#101216;--panel:#1a1d23;--line:#2b2f38;--ink:#f2f4f7;--dim:#8a919c;
+        --ok:#2fbf6b;--dup:#e8a83c;--bad:#e2483c;--acc:#3d84f5;
+        --pad:clamp(6px,2.2vw,14px);
+        --fs-s:clamp(10.5px,2.9vw,13.5px);
+        --fs-m:clamp(12.5px,3.5vw,16px);
+        --fs-l:clamp(17px,5vw,26px);
+        --fs-xl:clamp(19px,6vw,34px);
+        --r:clamp(8px,2.4vw,12px)}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:var(--fs-m)/1.4 -apple-system,system-ui,"Noto Sans",sans-serif;overscroll-behavior:none;
+    height:100vh;height:100dvh}
+  body{display:flex;flex-direction:column}
+  .bar{display:flex;align-items:center;gap:var(--pad);padding:var(--pad);background:var(--panel);
+       border-bottom:1px solid var(--line);flex:0 0 auto}
+  .bar b{font-size:var(--fs-m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1 1 auto}
+  .btn{border:1px solid var(--line);background:#242832;color:var(--ink);border-radius:var(--r);
+       padding:clamp(8px,2.4vw,13px) clamp(9px,3vw,16px);font-size:var(--fs-m);font-weight:600;
+       cursor:pointer;flex:0 0 auto;white-space:nowrap}
+  .btn.pri{background:var(--acc);border-color:var(--acc)}
+  .btn.go{background:var(--ok);border-color:var(--ok)}
+  .btn:active{opacity:.7}
+  .counts{display:flex;gap:clamp(4px,1.4vw,8px);padding:var(--pad);background:var(--panel);
+          border-bottom:1px solid var(--line);font-size:var(--fs-s);flex:0 0 auto}
+  .counts div{flex:1 1 0;min-width:0;text-align:center;background:#242832;border-radius:var(--r);
+              padding:clamp(4px,1.4vw,8px) 2px}
+  .counts b{display:block;font-size:var(--fs-l);line-height:1.15}
+  .cam{position:relative;flex:1 1 auto;min-height:0;background:#000;overflow:hidden}
+  /* 没接上画面流时 <video> 会渲染一个巨大的播放三角占位图，很丑；由 showVideo() 控制显隐 */
+  .cam video{width:100%;height:100%;object-fit:cover;display:none}
+  .cam img{width:100%;height:100%;object-fit:contain;background:#000}
+  .aim{position:absolute;left:8%;right:8%;top:50%;height:32%;transform:translateY(-50%);
+       border:3px solid rgba(255,255,255,.55);border-radius:var(--r);pointer-events:none}
+  /* 取货核对时取景缩小：清单是主角，但还要看得见镜头才能拍 */
+  body.st-pick .cam,body.st-shot .cam{flex:0 0 38%}
+  body.st-pick .aim,body.st-shot .aim,body.st-empty .aim{display:none}
+
+  .panel{background:var(--panel);border-top:1px solid var(--line);padding:var(--pad);
+         flex:0 0 auto;overflow:auto;max-height:52%}
+  .panel.ok{background:#123a24}.panel.dup{background:#3d3011}.panel.bad{background:#3d1512}
+  .big{font-size:var(--fs-xl);font-weight:800;letter-spacing:.4px;line-height:1.15}
+  .sub{color:var(--dim);font-size:var(--fs-s);margin-top:3px;word-break:break-all}
+  /* 取货清单：整个 App 最重要的一块，字必须大 */
+  .pick{margin-top:6px}
+  .pick .sk{display:flex;align-items:baseline;gap:10px;padding:clamp(5px,1.8vw,10px) 0;
+            border-top:1px solid rgba(255,255,255,.13)}
+  /* 工人真正要看的是「几件 + 什么规格」。TikTok 商品名塞满 SEO 关键词，
+     一长串反而盖住重点，所以品名截短、降到配角，规格提到跟数量一个量级。*/
+  .pick .sk .q{font-size:var(--fs-xl);font-weight:800;color:var(--ok);flex:0 0 auto;min-width:1.8em;text-align:right;line-height:1.1}
+  .pick .sk .var{display:block;font-size:clamp(21px,6.4vw,36px);font-weight:800;line-height:1.12;letter-spacing:.3px}
+  .pick .sk .n{display:block;font-size:var(--fs-s);color:var(--dim);font-weight:600;margin-top:2px}
+  .actions{display:flex;gap:var(--pad);padding:var(--pad);background:var(--panel);
+           border-top:1px solid var(--line);flex:0 0 auto}
+  .actions .btn{flex:1 1 auto;padding:clamp(11px,3.4vw,20px) 8px;font-size:clamp(15px,4.4vw,21px)}
+  .pane{position:fixed;inset:0;background:var(--bg);z-index:9;display:none;flex-direction:column}
+  .pane.on{display:flex}
+  .pane .body{flex:1;overflow:auto;padding:var(--pad)}
+  .row{border-bottom:1px solid var(--line);padding:clamp(6px,2vw,11px) 2px;font-size:var(--fs-m)}
+  .row .t{color:var(--dim);font-size:var(--fs-s);margin-top:2px}
+  .tag{display:inline-block;padding:1px 7px;border-radius:99px;font-size:var(--fs-s);border:1px solid var(--line);color:var(--dim)}
+  .tag.overdue{color:var(--bad);border-color:var(--bad)}
+  .tag.today{color:var(--dup);border-color:var(--dup)}
+  .hint{color:var(--dim);font-size:var(--fs-m);padding:var(--pad)}
+  /* 手动输入：三次读不到就靠它，键盘要大 */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:20;display:none;
+         align-items:center;justify-content:center;padding:var(--pad)}
+  .modal.on{display:flex}
+  .modal .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+              padding:var(--pad);width:100%;max-width:420px}
+  .modal input{width:100%;background:var(--bg);border:1px solid var(--acc);border-radius:var(--r);
+               color:var(--ink);font:700 var(--fs-xl)/1.2 inherit;padding:clamp(8px,2.6vw,14px);
+               text-align:center;letter-spacing:.06em;margin:8px 0}
+  .modal .row2{display:flex;gap:var(--pad)}
+  .modal .row2 .btn{flex:1}
+  #file{display:none}
+  /* 底部版权条：常驻但压到最薄，别跟取景区抢高度 */
+  .foot{display:flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;
+        padding:clamp(3px,1vw,6px);background:var(--bg);border-top:1px solid var(--line);
+        font-size:clamp(9px,2.3vw,11.5px);color:var(--dim);letter-spacing:.2px}
+  .foot img{height:1.55em;width:1.55em;border-radius:3px;display:block}
+  /* 空态：还没载入清单时屏幕是空的，正好放个大 logo */
+  .hero{display:none;position:absolute;inset:0;align-items:center;justify-content:center}
+  body.st-empty .hero{display:flex}
+  .hero img{width:min(46%,220px);opacity:.9;border-radius:clamp(10px,3vw,18px)}
+  /* 横屏 / 矮屏：取景优先，计数条收起（数字在标题里照样看得到） */
+  @media (max-height:560px){
+    :root{--pad:5px;--fs-xl:clamp(15px,3.6vw,21px)}
+    .counts{display:none}
+    .panel{max-height:56%}
+    body.st-pick .cam,body.st-shot .cam{flex:0 0 34%}
+  }
+  @media (max-height:380px){
+    :root{--pad:3px}
+    .foot{display:none}
+    .bar:not(.actions) b{display:none}
+    .bar .btn{padding:6px 9px;font-size:var(--fs-s)}
+  }
+</style>
+</head>
+<body class="st-empty">
+
+<div class="bar">
+  <b id="ttl">Imbas Bungkusan</b>
+  <button class="btn" id="btnList" data-i18n="list">Senarai</button>
+  <button class="btn" id="btnMiss" data-i18n="missing">Tertinggal</button>
+  <button class="btn" id="btnExport" data-i18n="export">Eksport</button>
+  <button class="btn" id="btnLang" title="BM / 中文">BM</button>
+</div>
+
+<div class="counts">
+  <div><span data-i18n="cDone">Siap</span><b id="cDone">0</b></div>
+  <div><span data-i18n="cLeft">Belum</span><b id="cLeft">0</b></div>
+  <div><span data-i18n="cDup">Ulang</span><b id="cDup">0</b></div>
+  <div><span data-i18n="cBad">Bukan senarai</span><b id="cBad">0</b></div>
+</div>
+
+<div class="cam" id="cam">
+  <video id="v" playsinline muted></video>
+  <img id="shot" style="display:none">
+  <div class="aim"></div>
+  <div class="hero"><img src="logo.svg" alt=""></div>
+</div>
+
+<div class="panel" id="panel">
+  <div class="big" id="pBig">Muatkan senarai dahulu</div>
+  <div class="sub" id="pSub">Pilih fail Excel yang dihantar bos</div>
+  <div class="pick" id="pPick"></div>
+</div>
+
+<div class="actions" id="acts"></div>
+
+<div class="foot"><img src="logo.svg" alt=""><span>All rights reserved by Lindsey</span></div>
+
+<input type="file" id="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+
+<div class="pane" id="paneList">
+  <div class="bar"><b data-i18n="paneList">Senarai Hari Ini</b><button class="btn" data-close data-i18n="close">Tutup</button></div>
+  <div class="body" id="listBody"></div>
+</div>
+<div class="pane" id="paneMiss">
+  <div class="bar"><b data-i18n="paneMiss">Senarai Tertinggal</b><button class="btn" data-close data-i18n="close">Tutup</button></div>
+  <div class="body" id="missBody"></div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <div class="big" id="mTitle">Taip nombor penjejakan</div>
+    <div class="sub" id="mHint">Nombor 15 digit di bawah barcode</div>
+    <input id="mInput" type="text" inputmode="numeric" autocomplete="off">
+    <div class="row2">
+      <button class="btn" id="mCancel" data-i18n="cancel">Batal</button>
+      <button class="btn pri" id="mOk" data-i18n="ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/xlsx.js"></script>
+<script src="js/sla.js"></script>
+<script src="js/store.js"></script>
+<script src="js/zxing.js"></script><!-- 条码解码兜底：WebView/Safari 没有 BarcodeDetector，用本地 ZXing 顶上（零外链） -->
+<script>
+const $ = id => document.getElementById(id);
+const WAREHOUSE_STATE = 'Johor';        // 仓库所在州 → 决定工作日日历
+const SCAN_TIMEOUT = 8000;              // 多久没读到算一次失败
+const MAX_TRIES = 3;                    // Lindsey 定：三次读不到就转手动输入
+
+let HOL = new Set(), BATCH = null, byKey = new Map();
+let scanning = false, det = null, stream = null, wake = null;
+let CUR = null, curShot = null;          // 当前在核对的那一单 / 刚拍的照片
+let tries = 0, tmr = null, ST = 'empty';
+
+const SKEY = 'pack-scan-state';
+const save = () => { try { localStorage.setItem(SKEY, JSON.stringify(BATCH)); } catch (e) {} };
+const load = () => { try { return JSON.parse(localStorage.getItem(SKEY) || 'null'); } catch (e) { return null; } };
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const hhmmss = s => new Date(s).toTimeString().slice(0, 8);
+// TikTok 商品名是 SEO 堆料：'Garlic Bites | Crispy… | Freshly Baked… | Ready Stock'
+// 第一段才是真名，后面全是关键词。截到第一个 | 为止，再限长。
+function shortName(s) {
+  let x = String(s || '').split('|')[0].trim();
+  if (!x) x = String(s || '').trim();
+  return x.length > 26 ? x.slice(0, 26) + '…' : x;
+}
+const vib = p => { try { navigator.vibrate && navigator.vibrate(p); } catch (e) {} };
+
+// data/ 打包后跟 index.html 同级，dev 时在上一级——两个都试
+function fetchData(name, opt) {
+  return fetch('data/' + name, opt).then(r => r.ok ? r : Promise.reject())
+    .catch(() => fetch('../data/' + name, opt).then(r => r.ok ? r : Promise.reject()));
+}
+fetchData('holidays-johor.json').then(r => r.json()).then(j => HOL = loadHolidays(j)).catch(() => {});
+
+// ── 状态机：empty → scan → pick → shot → scan ─────────────
+function setState(s) {
+  ST = s;
+  document.body.className = 'st-' + s + (BATCH ? ' loaded' : '');
+  const a = $('acts');
+  if (s === 'empty') a.innerHTML = `<button class="btn pri" id="aLoad">${esc(t('loadBtn'))}</button>`;
+  else if (s === 'scan') a.innerHTML = `<button class="btn" id="aManual">${esc(t('typeManual'))}</button>`;
+  else if (s === 'pick') a.innerHTML = `<button class="btn go" id="aShot">${esc(t('takePhoto'))}</button>`;
+  else if (s === 'shot') a.innerHTML = `<button class="btn" id="aRetake">${esc(t('retake'))}</button>`
+                                     + `<button class="btn go" id="aDone">${esc(t('confirmDone'))}</button>`;
+  const on = (id, fn) => { const e = a.querySelector('#' + id); if (e) e.onclick = fn; };
+  on('aLoad', () => $('file').click());
+  on('aManual', openManual);
+  on('aShot', takeShot);
+  on('aRetake', () => { curShot = null; showVideo(); setState('pick'); });
+  on('aDone', confirmDone);
+}
+function showVideo() { $('shot').style.display = 'none'; $('v').style.display = stream ? 'block' : 'none'; }
+function say(cls, big, sub, pickHtml) {
+  $('panel').className = 'panel ' + (cls || '');
+  $('pBig').textContent = big || '';
+  $('pSub').textContent = sub || '';
+  $('pPick').innerHTML = pickHtml || '';
+}
+
+// ── 载入 Excel（老板 WhatsApp 发来 → 工人在这里选）────────
+$('file').onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  say('', t('parsing'), f.name);
+  try {
+    const { rows } = await XLSX.read(await f.arrayBuffer(), 'OrderSKUList');
+    buildBatch(rows, f.name);
+    save(); render();
+    say('ok', t('loaded'), t('loadedSub', BATCH.orders.length));
+    startScan();
+  } catch (err) {
+    say('bad', t('parseFail'), t('parseFailSub') + '  ·  ' + (err.message || err));
+    setState('empty');
+  }
+  e.target.value = '';
+};
+
+// 导出表两个坑：第 2 行是字段说明行不是数据；sheet 是 SKU 级，一单多 SKU 占多行要归并
+function buildBatch(rows, srcName) {
+  const hdr = rows[0] || [], ix = {};
+  hdr.forEach((h, i) => { if (h) ix[h] = i; });
+  for (const need of ['Order ID', 'Tracking ID', 'Created Time'])
+    if (!(need in ix)) throw new Error('缺少列 ' + need);
+  const now = new Date(), map = new Map();
+  for (let r = 2; r < rows.length; r++) {              // ← 从第 3 行起
+    const row = rows[r]; if (!row || !row[ix['Order ID']]) continue;
+    const id = String(row[ix['Order ID']]).trim();
+    let o = map.get(id);
+    if (!o) {
+      let due = null, bk = 'later';
+      try { const d = shipDeadline(parseMY(String(row[ix['Created Time']] || '')), WAREHOUSE_STATE, HOL);
+            due = d.rtsDue.toISOString(); bk = bucket(d.rtsDue, now); } catch (e) {}
+      map.set(id, o = { id, key: String(row[ix['Tracking ID']] || '').trim(), due, bk,
+                        skus: [], packedAt: null });
+    }
+    o.skus.push({ n: String(row[ix['Product Name']] || ''), v: String(row[ix['Variation']] || ''),
+                  q: String(row[ix['Quantity']] || '1'), sku: String(row[ix['Seller SKU']] || '') });
+  }
+  BATCH = { source: srcName, loadedAt: now.toISOString(), orders: [...map.values()], extras: [], dupCount: 0 };
+  index();
+}
+// 导出格式 '29/07/2026 14:40:12'（本地 MYT），Date 直接解析不了
+function parseMY(s) {
+  const m = String(s).match(/^(\d{2})\/(\d{2})\/(\d{4})[ T](\d{2}):(\d{2})(?::(\d{2}))?/);
+  return m ? new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5], +(m[6] || 0)) : new Date(s);
+}
+function index() { byKey = new Map(); for (const o of BATCH.orders) if (o.key) byKey.set(o.key, o); }
+
+// ── 扫描 ─────────────────────────────────────────────────
+// 解码引擎：Chrome 有原生 BarcodeDetector 就用它（快）；WebView/Safari 没有 → 本地 ZXing 兜底（同接口）。
+// 26-08-02 修：原来这里一句「WebView 太旧」直接 return，摄像头压根没申请——真机全挂在这行。
+function makeDetector() {
+  if ('BarcodeDetector' in window)
+    return new BarcodeDetector({ formats: ['code_128', 'code_39', 'ean_13', 'qr_code', 'itf', 'codabar'] });
+  const Z = window.ZXing;
+  if (!Z) { say('bad', '解码器缺失 ✗', 'zxing.js 没载入'); return null; }
+  const hints = new Map();
+  hints.set(Z.DecodeHintType.POSSIBLE_FORMATS, [
+    Z.BarcodeFormat.CODE_128, Z.BarcodeFormat.CODE_39, Z.BarcodeFormat.EAN_13,
+    Z.BarcodeFormat.QR_CODE, Z.BarcodeFormat.ITF, Z.BarcodeFormat.CODABAR]);
+  hints.set(Z.DecodeHintType.TRY_HARDER, true);
+  const reader = new Z.MultiFormatReader(); reader.setHints(hints);
+  const cv = document.createElement('canvas');
+  return { async detect(video) {
+    const vw = video.videoWidth, vh = video.videoHeight;
+    if (!vw) return [];
+    const w = Math.min(vw, 800), h = Math.round(vh * w / vw);   // 降采样：入门机也扛得住
+    cv.width = w; cv.height = h;
+    cv.getContext('2d', { willReadFrequently: true }).drawImage(video, 0, 0, w, h);
+    try {
+      const bmp = new Z.BinaryBitmap(new Z.HybridBinarizer(new Z.HTMLCanvasElementLuminanceSource(cv)));
+      const r = reader.decode(bmp);            // 没识别到会 throw NotFoundException
+      return [{ rawValue: r.getText() }];
+    } catch (e) { return []; }                 // 没扫到＝空数组，和 BarcodeDetector 语义一致
+  } };
+}
+async function startScan() {
+  if (!BATCH) return setState('empty');
+  det = det || makeDetector();
+  if (!det) return setState('scan');
+  if (!stream) {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: {
+        facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } } });
+    } catch (e) { say('bad', 'Kamera ✗', String(e.message || e)); return setState('scan'); }
+    $('v').srcObject = stream; await $('v').play();
+  }
+  try { wake = wake || await navigator.wakeLock.request('screen'); } catch (e) {}
+  showVideo();
+  scanning = true; tries = 0;
+  if (ST !== 'scan') say('', t('scanHint'), '');
+  setState('scan'); armTimer(); loop();
+}
+function armTimer() {
+  clearTimeout(tmr);
+  tmr = setTimeout(() => {
+    if (!scanning) return;
+    tries++; vib(180);
+    if (tries >= MAX_TRIES) { say('dup', t('scanFailFinal'), ''); openManual(); }
+    else { say('dup', t('scanFail', tries), t('scanHint')); armTimer(); }
+  }, SCAN_TIMEOUT);
+}
+let lastCode = '', lastAt = 0;
+async function loop() {
+  if (!scanning) return;
+  try {
+    const codes = await det.detect($('v'));
+    if (codes.length) {
+      const raw = String(codes[0].rawValue || '').trim(), now = Date.now();
+      if (raw && !(raw === lastCode && now - lastAt < 1500)) { lastCode = raw; lastAt = now; onCode(raw); }
+    }
+  } catch (e) {}
+  setTimeout(loop, 120);        // ~8fps，入门机 CPU 扛得住
+}
+
+// 匹配：先整串，再退化成前缀（面单条码若只印 12 位、导出表是 15 位，靠这条兜住）
+function match(raw) {
+  if (byKey.has(raw)) return byKey.get(raw);
+  if (raw.length >= 10) for (const [k, o] of byKey) if (k.startsWith(raw) || raw.startsWith(k)) return o;
+  return null;
+}
+function onCode(raw) {
+  clearTimeout(tmr); tries = 0;
+  const o = match(raw);
+  if (!o) { BATCH.extras.push({ code: raw, at: new Date().toISOString() });
+            vib(500); say('bad', t('badBig'), raw); save(); render(); armTimer(); return; }
+  if (o.packedAt) { BATCH.dupCount++; vib([90, 80, 90]);
+                    say('dup', t('dupBig'), raw + '  ·  ' + hhmmss(o.packedAt)); save(); render(); armTimer(); return; }
+  enterPick(o);
+}
+
+// ── 取货核对：App 的核心——把「该装什么」甩到他脸上 ──────
+function enterPick(o) {
+  CUR = o; curShot = null; scanning = false; clearTimeout(tmr); vib(60);
+  renderPick(o); showVideo(); setState('pick');
+}
+// 只负责画，不动状态——切语言时要能原地重画
+function renderPick(o) {
+  const list = o.skus.map(s =>
+    `<div class="sk"><span class="q">${esc(s.q)}</span><span>`
+    + `<span class="var">${esc(s.v || shortName(s.n))}</span>`
+    + `<span class="n">${esc(shortName(s.n))}${s.sku ? ' · ' + esc(s.sku) : ''}</span>`
+    + `</span></div>`).join('');
+  const total = o.skus.reduce((a, s) => a + (+s.q || 0), 0);
+  say('ok', t('packThis'), o.key + '  ·  ' + total + ' ' + t('unit'), list);
+}
+
+// ── 拍照留存：从取景截帧，不调系统相机（入门机上慢两三秒）──
+async function takeShot() {
+  try {
+    curShot = await Store.grabFrame($('v'), 1080, 0.72);
+    $('shot').src = URL.createObjectURL(curShot);
+    $('shot').style.display = ''; $('v').style.display = 'none';
+    vib(40); setState('shot');
+  } catch (e) { say('bad', String(e.message || e), ''); }
+}
+async function confirmDone() {
+  if (!CUR || !curShot) return say('bad', t('photoNeeded'), '');
+  await Store.putPhoto(CUR.key, curShot);
+  CUR.packedAt = new Date().toISOString();
+  save(); render();
+  const left = BATCH.orders.filter(x => !x.packedAt).length;
+  CUR = null; curShot = null;
+  say('ok', t('doneBig'), t('doneSub', left));
+  vib(60);
+  startScan();
+}
+
+// ── 手动输入（三次读不到 / 标签破损）──────────────────────
+function openManual() {
+  scanning = false; clearTimeout(tmr);
+  $('mTitle').textContent = t('manualTitle');
+  $('mHint').textContent = t('manualHint');
+  $('mInput').value = '';
+  $('modal').classList.add('on');
+  setTimeout(() => $('mInput').focus(), 60);
+}
+function closeManual() { $('modal').classList.remove('on'); tries = 0; }
+$('mCancel').onclick = () => { closeManual(); startScan(); };
+$('mOk').onclick = () => {
+  const v = $('mInput').value.trim();
+  closeManual();
+  if (v) { scanning = true; onCode(v); if (ST === 'scan') loop(); } else startScan();
+};
+$('mInput').addEventListener('keydown', e => { if (e.key === 'Enter') $('mOk').click(); });
+
+// ── 计数 / 清单 ──────────────────────────────────────────
+function render() {
+  if (!BATCH) return;
+  const done = BATCH.orders.filter(o => o.packedAt).length;
+  $('cDone').textContent = done;
+  $('cLeft').textContent = BATCH.orders.length - done;
+  $('cDup').textContent = BATCH.dupCount || 0;
+  $('cBad').textContent = BATCH.extras.length;
+  $('ttl').textContent = t('title') + ' · ' + done + '/' + BATCH.orders.length;
+}
+$('btnList').onclick = () => { fill('listBody', BATCH ? BATCH.orders : []); $('paneList').classList.add('on'); };
+$('btnMiss').onclick = () => { fill('missBody', BATCH ? BATCH.orders.filter(o => !o.packedAt) : [], true); $('paneMiss').classList.add('on'); };
+document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => document.querySelectorAll('.pane').forEach(p => p.classList.remove('on')));
+function fill(id, arr, miss) {
+  if (!arr.length) return $(id).innerHTML = `<div class="hint">${esc(miss ? t('allDone') : t('notLoaded'))}</div>`;
+  $(id).innerHTML = arr.map(o =>
+    `<div class="row"><b>${esc(o.key)}</b> <span class="tag ${o.bk}">${o.due ? esc(o.due.slice(5, 10) + ' 14:00 ' + t('dueTag')) : ''}</span>`
+    + `<div class="t">${esc(o.skus.map(s => (s.v || shortName(s.n)) + ' x' + s.q).join(' ; '))}</div>`
+    + `<div class="t">${esc((o.packedAt ? t('scannedAt', hhmmss(o.packedAt)) : t('notScanned')) + ' · ' + t('orderNo') + ' ' + o.id)}</div></div>`).join('');
+}
+
+// ── 导出数据包：CSV + 照片 → zip → 存手机，工人自己 WhatsApp 给老板 ──
+$('btnExport').onclick = async () => {
+  if (!BATCH || !BATCH.orders.some(o => o.packedAt)) return say('dup', t('exportEmpty'), '');
+  say('', t('exporting'), '');
+  const rows = [t('csv').slice()], files = [];
+  for (const o of BATCH.orders) {
+    const shot = o.packedAt ? await Store.getPhoto(o.key) : null;
+    const pname = shot ? 'gambar/' + o.key + '.jpg' : '';
+    if (shot) files.push({ name: pname, data: await Store.blobBytes(shot) });
+    rows.push([o.id, o.key, o.due || '', o.packedAt ? t('csvSent') : t('csvNot'),
+               o.packedAt || '', pname, o.skus.map(s => (s.sku || s.n).slice(0, 40) + ' x' + s.q).join(' | ')]);
+  }
+  for (const e of BATCH.extras) rows.push(['', e.code, '', t('csvExtra'), e.at, '', '']);
+  const csv = '﻿' + rows.map(r => r.map(x => '"' + String(x).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  const day = new Date().toISOString().slice(0, 10);
+  files.unshift({ name: 'packing-' + day + '.csv', data: Store.u8(csv) });
+  const zip = Store.makeZip(files, new Date());
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(zip); a.download = 'packing-' + day + '.zip';
+  document.body.appendChild(a); a.click(); a.remove();
+  say('ok', t('exported'), t('exportedSub') + '  ·  ' + Math.round(zip.size / 1024) + ' KB');
+};
+
+// ── 语言 ─────────────────────────────────────────────────
+function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
+  // 按钮上写的是「点了会变成什么」——写当前语言的话，人会以为点了才变成 BM，结果反而切走了
+  $('btnLang').textContent = LANG === 'ms' ? '中文' : 'BM';
+  if (!BATCH) { $('pBig').textContent = t('initBig'); $('pSub').textContent = t('initSub'); }
+  else {
+    render();
+    // 正文也要跟着换语言——只刷顶栏的话，取货清单会停在旧语言
+    if (CUR && (ST === 'pick' || ST === 'shot')) renderPick(CUR);
+    else if (ST === 'scan') say('', t('scanHint'), '');
+  }
+  setState(ST);
+}
+$('btnLang').onclick = () => { setLang(LANG === 'ms' ? 'zh' : 'ms'); applyLang(); };
+
+// ── 开机 ─────────────────────────────────────────────────
+Store.purgeOld().catch(() => {});
+const prev = load();
+if (prev && prev.orders) { BATCH = prev; index(); render(); say('ok', t('restored'), prev.source || ''); setState('scan'); }
+else setState('empty');
+applyLang();
+</script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 {
   "_readme": "本文件由 Skill 工作台自动生成（勾了「上板」的技能 + works-extras.json 里的系统/agent 作品）。别手改——下次工作台保存会覆盖。网站项目从这里读取渲染作品板。tally=板上作品数，inventory=库存总量（含未上板），页面数字钩子二选一。",
-  "generated": "2026-07-27T01:26:10.530Z",
+  "generated": "2026-08-03T13:37:54.420Z",
   "tally": {
     "skill": 3,
     "system": 3,
     "agent": 1
   },
   "inventory": {
-    "skill": 40,
+    "skill": 52,
     "system": 3,
     "agent": 14
   },
@@ -43,6 +43,10 @@
     {
       "name": "ad-video-product-check",
       "type": "skill",
+      "category": "commerce",
+      "categoryLabel": "电商增长运营",
+      "categoryEn": "Commerce operations",
+      "categoryOrder": 2,
       "desc": "Checks a TikTok or Douyin selling video against the real product and flags mismatches in size, texture and claims, with evidence frames and a verdict.",
       "source": "closed",
       "github": ""
@@ -50,6 +54,10 @@
     {
       "name": "geo-audit-suite",
       "type": "skill",
+      "category": "geo",
+      "categoryLabel": "AI 搜索可见性",
+      "categoryEn": "AI search visibility",
+      "categoryOrder": 3,
       "desc": "Audits how a site shows up in AI answers and search, scoring GEO and AEO visibility with a chart and a fix list.",
       "source": "closed",
       "github": ""
@@ -57,6 +65,10 @@
     {
       "name": "视频拆解",
       "type": "skill",
+      "category": "commerce",
+      "categoryLabel": "电商增长运营",
+      "categoryEn": "Commerce operations",
+      "categoryOrder": 2,
       "desc": "Breaks any TikTok or Douyin video into a clean watermark free file, full transcript, on screen text and key frames from one link.",
       "source": "closed",
       "github": ""

@@ -1,0 +1,33 @@
+{
+  "_source": "johor.gov.my/rakyat/cuti-umum-2（官方）· 抓取 2026-07-30",
+  "_note": [
+    "只放 Johor（仓库所在州）。TikTok 的『工作日』要排除公共假期，这张表就是那个排除项。",
+    "官网标注部分日期 subject to amendment；伊斯兰历/农历节日每年浮动，每年 12 月要更新下一年。",
+    "落在周日的假期通常顺延到下一个工作日——顺延日期没有官方逐条公布，",
+    "所以下面 substitute 是推算的，标了 verified:false，必须拿平台的 latest_rts_time 对过才能信。"
+  ],
+  "state": "Johor",
+  "weekend": "Sat-Sun",
+  "_weekend_note": "Johor 自 2025-01-01 起由『周五六休』改回『周六日休』，与 TikTok SLA 表把 Johor 归入 Mon–Fri 一致。",
+  "year": 2026,
+  "holidays": [
+    { "date": "2026-02-01", "name": "Thaipusam", "dow": "Sun", "substitute": "2026-02-02", "verified": false },
+    { "date": "2026-02-17", "name": "Chinese New Year", "dow": "Tue", "verified": true },
+    { "date": "2026-02-18", "name": "Chinese New Year (Day 2)", "dow": "Wed", "verified": true },
+    { "date": "2026-02-19", "name": "Awal Ramadhan", "dow": "Thu", "verified": true },
+    { "date": "2026-03-21", "name": "Hari Raya Puasa", "dow": "Sat", "verified": true },
+    { "date": "2026-03-22", "name": "Hari Raya Puasa (Day 2)", "dow": "Sun", "substitute": "2026-03-24", "verified": false, "_note": "顺延本应是 03-23，但那天已是 Sultan Johor 生日，故推 03-24；需核对" },
+    { "date": "2026-03-23", "name": "Sultan of Johor's Birthday", "dow": "Mon", "verified": true },
+    { "date": "2026-05-01", "name": "Labour Day", "dow": "Fri", "verified": true },
+    { "date": "2026-05-27", "name": "Hari Raya Qurban", "dow": "Wed", "verified": true },
+    { "date": "2026-05-31", "name": "Wesak Day", "dow": "Sun", "substitute": "2026-06-02", "verified": false, "_note": "顺延本应是 06-01，但那天已是国王生日，故推 06-02；需核对" },
+    { "date": "2026-06-01", "name": "Agong's Birthday", "dow": "Mon", "verified": true },
+    { "date": "2026-06-17", "name": "Awal Muharram", "dow": "Wed", "verified": true },
+    { "date": "2026-07-21", "name": "Hari Hol Almarhum Sultan Iskandar", "dow": "Tue", "verified": true },
+    { "date": "2026-08-25", "name": "Maulidur Rasul", "dow": "Tue", "verified": true },
+    { "date": "2026-08-31", "name": "Hari Kebangsaan", "dow": "Mon", "verified": true },
+    { "date": "2026-09-16", "name": "Hari Malaysia", "dow": "Wed", "verified": true },
+    { "date": "2026-11-08", "name": "Deepavali", "dow": "Sun", "substitute": "2026-11-09", "verified": false },
+    { "date": "2026-12-25", "name": "Christmas Day", "dow": "Fri", "verified": true }
+  ]
+}
