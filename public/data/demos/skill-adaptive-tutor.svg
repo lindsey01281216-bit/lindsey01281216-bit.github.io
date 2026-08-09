@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="An adaptive tutoring loop that generates a question, takes an answer, judges mastery and adjusts difficulty">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="400" cy="250" rx="200" ry="160" fill="url(#focus)" filter="url(#softGlow)"/>
+  <!-- closed loop of 4 stations arranged as a cycle -->
+  <!-- arc segments with arrowheads forming the loop -->
+  <g fill="none" stroke="#80cde9" stroke-opacity="0.64" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M470 148 C560 168 590 220 588 250"/>
+    <path d="M580 306 C560 356 480 372 400 372"/>
+    <path d="M330 352 C240 332 210 280 212 250"/>
+    <path d="M220 194 C240 144 320 128 400 128"/>
+  </g>
+  <!-- arrowheads (clockwise) -->
+  <g fill="none" stroke="#80cde9" stroke-opacity=".82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M582 240 L588 251 L577 254"/>
+    <path d="M410 366 L400 373 L408 383"/>
+    <path d="M218 260 L212 249 L223 246"/>
+    <path d="M390 134 L400 127 L392 117"/>
+  </g>
+  <!-- station 1 (top): generate question -->
+  <g>
+    <rect x="330" y="98" width="140" height="60" rx="12" fill="#cbe0e8" fill-opacity="0.07" stroke="#cbe0e8" stroke-opacity=".32" stroke-width="1.5"/>
+    <circle cx="356" cy="128" r="9" fill="#80cde9" fill-opacity=".85"/>
+    <path d="M352 124 a4 4 0 1 1 6 3 c-2 1 -2 2 -2 4" fill="none" stroke="#141a20" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="376" y1="120" x2="452" y2="120" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    <line x1="376" y1="136" x2="432" y2="136" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- station 2 (right): answer -->
+  <g>
+    <rect x="588" y="220" width="140" height="60" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+    <path d="M606 244 l8 10 l16 -20" fill="none" stroke="#80cde9" stroke-opacity=".85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="642" y1="242" x2="710" y2="242" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    <line x1="642" y1="258" x2="690" y2="258" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- station 3 (bottom): judge mastery -->
+  <g>
+    <rect x="330" y="342" width="140" height="60" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+    <circle cx="356" cy="372" r="10" fill="none" stroke="#80cde9" stroke-opacity=".8" stroke-width="2"/>
+    <path d="M356 362 A10 10 0 0 1 356 382" fill="#80cde9" fill-opacity=".7"/>
+    <line x1="376" y1="364" x2="452" y2="364" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    <line x1="376" y1="380" x2="426" y2="380" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- station 4 (left): adjust difficulty (slider) -->
+  <g>
+    <rect x="72" y="220" width="140" height="60" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+    <line x1="92" y1="242" x2="192" y2="242" stroke="#cbe0e8" stroke-opacity=".22" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="150" cy="242" r="6" fill="#80cde9" fill-opacity=".9"/>
+    <line x1="92" y1="262" x2="192" y2="262" stroke="#cbe0e8" stroke-opacity=".22" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="116" cy="262" r="6" fill="#80cde9" fill-opacity=".7"/>
+  </g>
+  <!-- center pulse -->
+  <circle cx="400" cy="250" r="7" fill="#80cde9" fill-opacity=".9"/>
+  <circle cx="400" cy="250" r="20" fill="none" stroke="#80cde9" stroke-opacity=".25" stroke-width="1.3" stroke-dasharray="3 6"/>
+</svg>
