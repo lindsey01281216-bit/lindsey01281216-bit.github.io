@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A radar sweeping remote job skill demands and comparing them against a capability baseline to surface gaps">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="280" cy="250" rx="180" ry="170" fill="url(#focus)" filter="url(#softGlow)"/>
+  <!-- LEFT: radar with concentric rings + sweep + job demand nodes -->
+  <g>
+    <circle cx="280" cy="250" r="150" fill="none" stroke="#cbe0e8" stroke-opacity=".14" stroke-width="1.2"/>
+    <circle cx="280" cy="250" r="108" fill="none" stroke="#cbe0e8" stroke-opacity=".12" stroke-width="1.2"/>
+    <circle cx="280" cy="250" r="64" fill="none" stroke="#cbe0e8" stroke-opacity=".1" stroke-width="1.2"/>
+    <line x1="130" y1="250" x2="430" y2="250" stroke="#cbe0e8" stroke-opacity=".1" stroke-width="1"/>
+    <line x1="280" y1="100" x2="280" y2="400" stroke="#cbe0e8" stroke-opacity=".1" stroke-width="1"/>
+    <!-- sweep arm -->
+    <path d="M280 250 L400 160 A150 150 0 0 0 280 100 Z" fill="url(#focus)" fill-opacity=".9"/>
+    <line x1="280" y1="250" x2="404" y2="158" stroke="#80cde9" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="280" cy="250" r="6" fill="#80cde9" fill-opacity=".95"/>
+    <!-- job demand blips -->
+    <circle cx="356" cy="188" r="5" fill="#80cde9" fill-opacity=".9"/>
+    <circle cx="212" cy="196" r="4" fill="#80cde9" fill-opacity=".7"/>
+    <circle cx="340" cy="312" r="4" fill="#80cde9" fill-opacity=".7"/>
+    <circle cx="200" cy="316" r="5" fill="#80cde9" fill-opacity=".85"/>
+    <circle cx="250" cy="150" r="3" fill="#80cde9" fill-opacity=".6"/>
+  </g>
+  <!-- RIGHT: capability baseline bars + gap highlights -->
+  <g>
+    <rect x="500" y="130" width="236" height="240" rx="12" fill="#cbe0e8" fill-opacity="0.05" stroke="#cbe0e8" stroke-opacity=".28" stroke-width="1.5"/>
+    <!-- baseline line -->
+    <line x1="524" y1="250" x2="712" y2="250" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.4" stroke-dasharray="4 5"/>
+    <!-- demand vs baseline bars: gap = 青色顶端超出基线 -->
+    <g>
+      <rect x="536" y="196" width="22" height="54" rx="4" fill="#cbe0e8" fill-opacity=".14"/>
+      <rect x="536" y="168" width="22" height="28" rx="4" fill="#80cde9" fill-opacity=".7"/>
+      <rect x="580" y="216" width="22" height="34" rx="4" fill="#cbe0e8" fill-opacity=".14"/>
+      <rect x="624" y="180" width="22" height="70" rx="4" fill="#cbe0e8" fill-opacity=".14"/>
+      <rect x="624" y="146" width="22" height="34" rx="4" fill="#80cde9" fill-opacity=".82"/>
+      <rect x="668" y="208" width="22" height="42" rx="4" fill="#cbe0e8" fill-opacity=".14"/>
+      <rect x="668" y="188" width="22" height="20" rx="4" fill="#80cde9" fill-opacity=".6"/>
+    </g>
+    <!-- gap labels area -->
+    <line x1="524" y1="300" x2="700" y2="300" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="530" cy="330" r="5" fill="#80cde9" fill-opacity=".9"/>
+    <line x1="546" y1="330" x2="692" y2="330" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="530" cy="352" r="5" fill="#80cde9" fill-opacity=".7"/>
+    <line x1="546" y1="352" x2="668" y2="352" stroke="#cbe0e8" stroke-opacity="0.18" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- connector radar -> comparison -->
+  <path d="M432 236 C462 226 480 210 500 200" fill="none" stroke="#80cde9" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+  <path d="M491 196 L500 200 L493 207" fill="none" stroke="#80cde9" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
