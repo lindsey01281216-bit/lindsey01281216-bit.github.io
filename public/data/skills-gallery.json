@@ -1,428 +1,544 @@
 {
- "_readme": "技能公开墙数据源，Skill 工作台自动生成。/case/skill/ 读此渲染。别手改。",
- "generated": "2026-08-09T15:17:41.954Z",
- "builtTotal": 54,
- "cats": [
-  {
-   "key": "systems",
-   "title": "AI Systems & Agent Engineering",
-   "label": "Type 01",
-   "lede": "The system that builds systems. Anyone can hold a tool. This is the method that makes tools work together, which is the line between an AI architect and someone who only uses AI.",
-   "groups": [],
-   "count": 7
-  },
-  {
-   "key": "commerce",
-   "title": "Commerce Operations",
-   "label": "Type 02",
-   "lede": "The work a seller does every day and the work that eats the most hours: pulling numbers, checking them, building reports, watching rivals, listing, and protecting the brand.",
-   "groups": [
-    "Data and Reporting",
-    "Market Intelligence",
-    "Platform Operations"
-   ],
-   "count": 16
-  },
-  {
-   "key": "geo",
-   "title": "AI Search Visibility (GEO)",
-   "label": "Type 03",
-   "lede": "Getting a brand found and cited inside ChatGPT, Google AI Overviews and Perplexity. The newest direction, and the one the fewest people can do.",
-   "groups": [],
-   "count": 6
-  },
-  {
-   "key": "content",
-   "title": "Content Production Line",
-   "label": "Type 04",
-   "lede": "The full chain from angle to publish, where every stage has its own standard and handoff. Not writing 1 piece of copy, but a production line that actually runs.",
-   "groups": [
-    "Set the Angle",
-    "Write",
-    "Visual",
-    "Review",
-    "Distribute"
-   ],
-   "count": 11
-  }
- ],
- "cards": [
-  {
-   "slug": "dispatch",
-   "title": "Route Work Across a Team of Agents",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "xiaoan-dispatch-playbook",
-   "desc": "Split a job, route each part by capability, accept it against clear criteria, and send it back when it fails."
-  },
-  {
-   "slug": "workflow-builder",
-   "title": "Build a Workflow From Plain Language",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "studio-workflow-builder",
-   "desc": "Describe a process in plain language and get a working workflow with scheduled jobs set up for you."
-  },
-  {
-   "slug": "prompt-craft",
-   "title": "Write Prompts That Land the First Time",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "prompt-craft",
-   "desc": "A structured way to write task prompts with enough context and clear limits so the work is done right in 1 pass."
-  },
-  {
-   "slug": "crux",
-   "title": "Break a Decision Down Before You Make It",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "crux",
-   "desc": "Pull a decision apart before it is made: where the real cause sits, what decides it, and where the bar for good should be."
-  },
-  {
-   "slug": "toolbox",
-   "title": "Give an Agent Your Whole Toolbox",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "toolbox",
-   "desc": "An interface layer that lets any agent call the whole toolbox through a local API on your own machine."
-  },
-  {
-   "slug": "kb-evolve",
-   "title": "Keep a Knowledge Base Growing on Its Own",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "kb-evolve",
-   "desc": "The knowledge base maintains itself: it patches links, distills conversations into notes, and files only what passes review."
-  },
-  {
-   "slug": "pain-to-skill",
-   "title": "Turn Community Pain Points Into a Build List",
-   "cat": "systems",
-   "group": "",
-   "source": "closed",
-   "id": "external-community-pain-to-skill",
-   "desc": "Scan communities on a schedule, rank pain points P0 to P2, and produce a weekend build brief."
-  },
-  {
-   "slug": "daily-report",
-   "title": "One Click Daily Report",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "一键日报",
-   "desc": "Pull yesterday overview for each account, cost, GMV, ROI and orders, then stop at a check table for confirmation."
-  },
-  {
-   "slug": "gmvmax-extract",
-   "title": "Pull GMV Max Data Every Day on Its Own",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "每日数据抽取",
-   "desc": "Extract the 4 GMV Max modules by account and time window, fully automated day by day to local files."
-  },
-  {
-   "slug": "today-sales",
-   "title": "Today Sales Across Platforms",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "tb-stock-daily",
-   "desc": "Pull today sales per product from orders across TikTok and Shopee in 1 view."
-  },
-  {
-   "slug": "change-log",
-   "title": "Log Every Change Across the Store",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "全店变更日志",
-   "desc": "Pull the change record for every campaign across all accounts, budget, ROI and on off switches, each with a timestamp."
-  },
-  {
-   "slug": "budget-board",
-   "title": "Budget vs Actual Board, Month to Date",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "tb-budget-pacing",
-   "desc": "A month to date table of target versus actual spend versus ROI at a glance."
-  },
-  {
-   "slug": "weekly-canvas",
-   "title": "Weekly Report Canvas",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "tb-weekly-canvas",
-   "desc": "A visual editor for building the weekly report."
-  },
-  {
-   "slug": "backup-flywheel",
-   "title": "Back Up Data on a Flywheel",
-   "cat": "commerce",
-   "group": "Data and Reporting",
-   "source": "closed",
-   "id": "tb-flywheel-backup",
-   "desc": "Mirror daily data into a flywheel by addition so history is never lost."
-  },
-  {
-   "slug": "kalodata-topboard",
-   "title": "Pull a Category Top Board From Kalodata",
-   "cat": "commerce",
-   "group": "Market Intelligence",
-   "source": "closed",
-   "id": "Kalodata大盘",
-   "desc": "Pull the category top board by keyword from Kalodata, rank, sales, commission rate and 14 columns in all."
-  },
-  {
-   "slug": "kalodata-crawl",
-   "title": "Crawl All of Kalodata at Zero Token",
-   "cat": "commerce",
-   "group": "Market Intelligence",
-   "source": "closed",
-   "id": "kalodata抓全站",
-   "desc": "Page through the top boards across 6 sections on Kalodata and drill into the daily curve, all at zero token."
-  },
-  {
-   "slug": "viral-breakdown",
-   "title": "Break Down What Makes Posts Go Viral",
-   "cat": "commerce",
-   "group": "Market Intelligence",
-   "source": "closed",
-   "id": "爆款节奏拆解",
-   "desc": "Collect notes in bulk, sort them by viral type, break down why each took off, and build a swipe library."
-  },
-  {
-   "slug": "video-breakdown",
-   "title": "Turn Any Video Into a Reusable Kit",
-   "cat": "commerce",
-   "group": "Market Intelligence",
-   "source": "closed",
-   "id": "视频拆解",
-   "pipeline": [
-    "Paste a video link",
-    "Pull the clean source",
-    "Transcribe and OCR on screen text",
-    "Grab key frames",
-    "Package the reusable kit"
-   ]
-  },
-  {
-   "slug": "ad-video-product-check",
-   "title": "Catch Videos That Oversell",
-   "cat": "commerce",
-   "group": "Platform Operations",
-   "source": "closed",
-   "id": "ad-video-product-check",
-   "pipeline": [
-    "Load video and real product",
-    "Pull key frames",
-    "Compare frame by frame against the truth",
-    "Gap report and verdict"
-   ]
-  },
-  {
-   "slug": "listing-pack",
-   "title": "Build a Ready to List Shopee Pack",
-   "cat": "commerce",
-   "group": "Platform Operations",
-   "source": "closed",
-   "id": "shopee-listing-pack",
-   "desc": "A full listing ready to publish, title, English and Malay description, image names and keywords."
-  },
-  {
-   "slug": "brand-protection",
-   "title": "Take Down Counterfeit Listings",
-   "cat": "commerce",
-   "group": "Platform Operations",
-   "source": "closed",
-   "id": "Shopee打假",
-   "desc": "Find fake listings and impostor shops that misuse a brand and file the complaint on the official template."
-  },
-  {
-   "slug": "onboard",
-   "title": "Onboard a New Client",
-   "cat": "commerce",
-   "group": "Platform Operations",
-   "source": "closed",
-   "id": "tb-onboard",
-   "desc": "Set up a new client, run a health check, and produce the first report."
-  },
-  {
-   "slug": "page-agent",
-   "title": "Work Directly on a Logged In Page",
-   "cat": "commerce",
-   "group": "Platform Operations",
-   "source": "closed",
-   "id": "page-agent",
-   "desc": "Act on a page you are already logged into, read the screen, pull data, click, page through and export."
-  },
-  {
-   "slug": "geo-audit-suite",
-   "title": "Check How Well GEO Surfaces Your Site",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "geo-audit-suite",
-   "pipeline": [
-    "Enter a site URL",
-    "Crawl and run AEO checks",
-    "Score GEO visibility",
-    "Ranked fix list"
-   ]
-  },
-  {
-   "slug": "geo-scorer",
-   "title": "Score a Blog Post for GEO",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "geo-blog-content-scorer",
-   "desc": "Score a blog post for GEO on a 100 point rubric and return a fix list in priority order."
-  },
-  {
-   "slug": "geo-monitor",
-   "title": "Track How Often AI Names Your Brand",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "geo-visibility-monitor",
-   "desc": "Measure how often a brand shows up in AI answers across engines and languages, and the trend over time."
-  },
-  {
-   "slug": "geo-authority",
-   "title": "Find Places That Can Cite You",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "geo-authority-opportunity-research",
-   "desc": "Find external authority, community, backlink and AI citation opportunities for a brand."
-  },
-  {
-   "slug": "personal-geo",
-   "title": "Audit a Personal Brand for AI Search",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "personal-ai-architect-geo-auditor",
-   "desc": "A vertical score for a personal brand across the website, LinkedIn and lead conversion."
-  },
-  {
-   "slug": "xhs-intent",
-   "title": "Map Xiaohongshu Search Intent",
-   "cat": "geo",
-   "group": "",
-   "source": "closed",
-   "id": "llmo-xhs-search-intent",
-   "desc": "Map search intent, the language people use to ask, and discoverability signals on Xiaohongshu."
-  },
-  {
-   "slug": "narrative-canonical",
-   "title": "Turn Real Experience Into a Standard Story",
-   "cat": "content",
-   "group": "Set the Angle",
-   "source": "closed",
-   "id": "narrative-source-to-canonical",
-   "desc": "Turn real experience, a project, a failure or a judgment call into a publishable standard narrative."
-  },
-  {
-   "slug": "xhs-angle",
-   "title": "Find a Xiaohongshu Angle From Real Material",
-   "cat": "content",
-   "group": "Set the Angle",
-   "source": "closed",
-   "id": "narrator-xhs-content-angle",
-   "desc": "Set the Xiaohongshu topic angle from real source material."
-  },
-  {
-   "slug": "native-copy",
-   "title": "Turn a Story Into Native Web Copy",
-   "cat": "content",
-   "group": "Write",
-   "source": "closed",
-   "id": "platform-native-copy-production",
-   "desc": "Turn a standard narrative into native website or blog copy with the right hook, structure and CTA."
-  },
-  {
-   "slug": "linkedin-copy",
-   "title": "Research and Write a LinkedIn Post",
-   "cat": "content",
-   "group": "Write",
-   "source": "closed",
-   "id": "copywriter-linkedin-research-angle-copy",
-   "desc": "Research for LinkedIn, form a point of view, and write a native post."
-  },
-  {
-   "slug": "xhs-copy",
-   "title": "Break Down Rivals and Draft for Xiaohongshu",
-   "cat": "content",
-   "group": "Write",
-   "source": "closed",
-   "id": "copywriter-xhs-research-breakdown-copy",
-   "desc": "Break down competing Xiaohongshu posts, distill reusable patterns, and draft an original first version."
-  },
-  {
-   "slug": "visual-production",
-   "title": "Produce Visuals for Your Personal Brand",
-   "cat": "content",
-   "group": "Visual",
-   "source": "closed",
-   "id": "personal-ip-visual-production",
-   "desc": "Website illustrations, LinkedIn carousels and explainer graphics."
-  },
-  {
-   "slug": "xhs-cover",
-   "title": "Design Xiaohongshu Covers and Cards",
-   "cat": "content",
-   "group": "Visual",
-   "source": "closed",
-   "id": "designer-xhs-cover-card",
-   "desc": "Turn approved copy into a mobile cover and image card pack."
-  },
-  {
-   "slug": "content-review",
-   "title": "Review Outbound Content Before It Ships",
-   "cat": "content",
-   "group": "Review",
-   "source": "closed",
-   "id": "public-content-review",
-   "desc": "Review outbound content for clarity, positioning, facts, privacy and public risk."
-  },
-  {
-   "slug": "xhs-review",
-   "title": "Check a Xiaohongshu Post Before Publishing",
-   "cat": "content",
-   "group": "Review",
-   "source": "closed",
-   "id": "content-review-xhs-prepublish",
-   "desc": "A pre publish check for Xiaohongshu, facts, tone, platform fit and risk."
-  },
-  {
-   "slug": "distribution",
-   "title": "Package Content for Web, LinkedIn and GitHub",
-   "cat": "content",
-   "group": "Distribute",
-   "source": "closed",
-   "id": "social-distribution-package",
-   "desc": "A distribution pack for the website, LinkedIn and GitHub."
-  },
-  {
-   "slug": "xhs-reminder",
-   "title": "Prepare a Xiaohongshu Post and Reminder",
-   "cat": "content",
-   "group": "Distribute",
-   "source": "closed",
-   "id": "social-xhs-reminder-package",
-   "desc": "A manual publish pack for Xiaohongshu with a reminder, never auto published."
-  }
- ],
- "total": 40
+  "_readme": "技能公开墙数据源，由 Skill 工作台从 gallery-map.json 自动生成。网站 /case/skill/ 读此渲染。别手改——改 gallery-map.json 或工作台。",
+  "generated": "2026-08-09T15:31:00.937Z",
+  "cats": [
+    {
+      "key": "systems",
+      "title": "AI Systems & Agent Engineering",
+      "label": "Type 01",
+      "lede": "The system that builds systems. Anyone can hold a tool. This is the method that makes tools work together, which is the line between an AI architect and someone who only uses AI.",
+      "groups": [],
+      "count": 12
+    },
+    {
+      "key": "commerce",
+      "title": "Commerce Operations",
+      "label": "Type 02",
+      "lede": "The work a seller does every day and the work that eats the most hours: pulling numbers, checking them, building reports, watching rivals, listing, and protecting the brand.",
+      "groups": [
+        "Data and Reporting",
+        "Market Intelligence",
+        "Platform Operations"
+      ],
+      "count": 16
+    },
+    {
+      "key": "geo",
+      "title": "AI Search Visibility (GEO)",
+      "label": "Type 03",
+      "lede": "Getting a brand found and cited inside ChatGPT, Google AI Overviews and Perplexity. The newest direction, and the one the fewest people can do.",
+      "groups": [],
+      "count": 6
+    },
+    {
+      "key": "content",
+      "title": "Content Production Line",
+      "label": "Type 04",
+      "lede": "The full chain from angle to publish, where every stage has its own standard and handoff. Not writing 1 piece of copy, but a production line that actually runs.",
+      "groups": [
+        "Set the Angle",
+        "Research",
+        "Write",
+        "Visual",
+        "Video Craft",
+        "Review",
+        "Distribute"
+      ],
+      "count": 16
+    }
+  ],
+  "cards": [
+    {
+      "slug": "dispatch",
+      "title": "Route Work Across a Team of Agents",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "xiaoan-dispatch-playbook",
+      "desc": "Split a job, route each part by capability, accept it against clear criteria, and send it back when it fails."
+    },
+    {
+      "slug": "workflow-builder",
+      "title": "Build a Workflow From Plain Language",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "studio-workflow-builder",
+      "desc": "Describe a process in plain language and get a working workflow with scheduled jobs set up for you."
+    },
+    {
+      "slug": "prompt-craft",
+      "title": "Write Prompts That Land the First Time",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "prompt-craft",
+      "desc": "A structured way to write task prompts with enough context and clear limits so the work is done right in 1 pass."
+    },
+    {
+      "slug": "crux",
+      "title": "Break a Decision Down Before You Make It",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "crux",
+      "desc": "Pull a decision apart before it is made: where the real cause sits, what decides it, and where the bar for good should be."
+    },
+    {
+      "slug": "toolbox",
+      "title": "Give an Agent Your Whole Toolbox",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "toolbox",
+      "desc": "An interface layer that lets any agent call the whole toolbox through a local API on your own machine."
+    },
+    {
+      "slug": "kb-evolve",
+      "title": "Keep a Knowledge Base Growing on Its Own",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "kb-evolve",
+      "desc": "The knowledge base maintains itself: it patches links, distills conversations into notes, and files only what passes review."
+    },
+    {
+      "slug": "pain-to-skill",
+      "title": "Turn Community Pain Points Into a Build List",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "external-community-pain-to-skill",
+      "desc": "Scan communities on a schedule, rank pain points P0 to P2, and produce a weekend build brief."
+    },
+    {
+      "slug": "daily-report",
+      "title": "One Click Daily Report",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "一键日报",
+      "desc": "Pull yesterday overview for each account, cost, GMV, ROI and orders, then stop at a check table for confirmation."
+    },
+    {
+      "slug": "gmvmax-extract",
+      "title": "Pull GMV Max Data Every Day on Its Own",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "每日数据抽取",
+      "desc": "Extract the 4 GMV Max modules by account and time window, fully automated day by day to local files."
+    },
+    {
+      "slug": "today-sales",
+      "title": "Today Sales Across Platforms",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "tb-stock-daily",
+      "desc": "Pull today sales per product from orders across TikTok and Shopee in 1 view."
+    },
+    {
+      "slug": "change-log",
+      "title": "Log Every Change Across the Store",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "全店变更日志",
+      "desc": "Pull the change record for every campaign across all accounts, budget, ROI and on off switches, each with a timestamp."
+    },
+    {
+      "slug": "budget-board",
+      "title": "Budget vs Actual Board, Month to Date",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "tb-budget-pacing",
+      "desc": "A month to date table of target versus actual spend versus ROI at a glance."
+    },
+    {
+      "slug": "weekly-canvas",
+      "title": "Weekly Report Canvas",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "tb-weekly-canvas",
+      "desc": "A visual editor for building the weekly report."
+    },
+    {
+      "slug": "backup-flywheel",
+      "title": "Back Up Data on a Flywheel",
+      "cat": "commerce",
+      "group": "Data and Reporting",
+      "source": "closed",
+      "id": "tb-flywheel-backup",
+      "desc": "Mirror daily data into a flywheel by addition so history is never lost."
+    },
+    {
+      "slug": "kalodata-topboard",
+      "title": "Pull a Category Top Board From Kalodata",
+      "cat": "commerce",
+      "group": "Market Intelligence",
+      "source": "closed",
+      "id": "Kalodata大盘",
+      "desc": "Pull the category top board by keyword from Kalodata, rank, sales, commission rate and 14 columns in all."
+    },
+    {
+      "slug": "kalodata-crawl",
+      "title": "Crawl All of Kalodata at Zero Token",
+      "cat": "commerce",
+      "group": "Market Intelligence",
+      "source": "closed",
+      "id": "kalodata抓全站",
+      "desc": "Page through the top boards across 6 sections on Kalodata and drill into the daily curve, all at zero token."
+    },
+    {
+      "slug": "viral-breakdown",
+      "title": "Break Down What Makes Posts Go Viral",
+      "cat": "commerce",
+      "group": "Market Intelligence",
+      "source": "closed",
+      "id": "爆款节奏拆解",
+      "desc": "Collect notes in bulk, sort them by viral type, break down why each took off, and build a swipe library."
+    },
+    {
+      "slug": "video-breakdown",
+      "title": "Turn Any Video Into a Reusable Kit",
+      "cat": "commerce",
+      "group": "Market Intelligence",
+      "source": "closed",
+      "id": "视频拆解",
+      "pipeline": [
+        "Paste a video link",
+        "Pull the clean source",
+        "Transcribe and OCR on screen text",
+        "Grab key frames",
+        "Package the reusable kit"
+      ]
+    },
+    {
+      "slug": "ad-video-product-check",
+      "title": "Catch Videos That Oversell",
+      "cat": "commerce",
+      "group": "Platform Operations",
+      "source": "closed",
+      "id": "ad-video-product-check",
+      "pipeline": [
+        "Load video and real product",
+        "Pull key frames",
+        "Compare frame by frame against the truth",
+        "Gap report and verdict"
+      ]
+    },
+    {
+      "slug": "listing-pack",
+      "title": "Build a Ready to List Shopee Pack",
+      "cat": "commerce",
+      "group": "Platform Operations",
+      "source": "closed",
+      "id": "shopee-listing-pack",
+      "desc": "A full listing ready to publish, title, English and Malay description, image names and keywords."
+    },
+    {
+      "slug": "brand-protection",
+      "title": "Take Down Counterfeit Listings",
+      "cat": "commerce",
+      "group": "Platform Operations",
+      "source": "closed",
+      "id": "Shopee打假",
+      "desc": "Find fake listings and impostor shops that misuse a brand and file the complaint on the official template."
+    },
+    {
+      "slug": "onboard",
+      "title": "Onboard a New Client",
+      "cat": "commerce",
+      "group": "Platform Operations",
+      "source": "closed",
+      "id": "tb-onboard",
+      "desc": "Set up a new client, run a health check, and produce the first report."
+    },
+    {
+      "slug": "page-agent",
+      "title": "Work Directly on a Logged In Page",
+      "cat": "commerce",
+      "group": "Platform Operations",
+      "source": "closed",
+      "id": "page-agent",
+      "desc": "Act on a page you are already logged into, read the screen, pull data, click, page through and export."
+    },
+    {
+      "slug": "geo-audit-suite",
+      "title": "Check How Well GEO Surfaces Your Site",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "geo-audit-suite",
+      "pipeline": [
+        "Enter a site URL",
+        "Crawl and run AEO checks",
+        "Score GEO visibility",
+        "Ranked fix list"
+      ]
+    },
+    {
+      "slug": "geo-scorer",
+      "title": "Score a Blog Post for GEO",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "geo-blog-content-scorer",
+      "desc": "Score a blog post for GEO on a 100 point rubric and return a fix list in priority order."
+    },
+    {
+      "slug": "geo-monitor",
+      "title": "Track How Often AI Names Your Brand",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "geo-visibility-monitor",
+      "desc": "Measure how often a brand shows up in AI answers across engines and languages, and the trend over time."
+    },
+    {
+      "slug": "geo-authority",
+      "title": "Find Places That Can Cite You",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "geo-authority-opportunity-research",
+      "desc": "Find external authority, community, backlink and AI citation opportunities for a brand."
+    },
+    {
+      "slug": "personal-geo",
+      "title": "Audit a Personal Brand for AI Search",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "personal-ai-architect-geo-auditor",
+      "desc": "A vertical score for a personal brand across the website, LinkedIn and lead conversion."
+    },
+    {
+      "slug": "xhs-intent",
+      "title": "Map Xiaohongshu Search Intent",
+      "cat": "geo",
+      "group": "",
+      "source": "closed",
+      "id": "llmo-xhs-search-intent",
+      "desc": "Map search intent, the language people use to ask, and discoverability signals on Xiaohongshu."
+    },
+    {
+      "slug": "narrative-canonical",
+      "title": "Turn Real Experience Into a Standard Story",
+      "cat": "content",
+      "group": "Set the Angle",
+      "source": "closed",
+      "id": "narrative-source-to-canonical",
+      "desc": "Turn real experience, a project, a failure or a judgment call into a publishable standard narrative."
+    },
+    {
+      "slug": "xhs-angle",
+      "title": "Find a Xiaohongshu Angle From Real Material",
+      "cat": "content",
+      "group": "Set the Angle",
+      "source": "closed",
+      "id": "narrator-xhs-content-angle",
+      "desc": "Set the Xiaohongshu topic angle from real source material."
+    },
+    {
+      "slug": "native-copy",
+      "title": "Turn a Story Into Native Web Copy",
+      "cat": "content",
+      "group": "Write",
+      "source": "closed",
+      "id": "platform-native-copy-production",
+      "desc": "Turn a standard narrative into native website or blog copy with the right hook, structure and CTA."
+    },
+    {
+      "slug": "linkedin-copy",
+      "title": "Research and Write a LinkedIn Post",
+      "cat": "content",
+      "group": "Write",
+      "source": "closed",
+      "id": "copywriter-linkedin-research-angle-copy",
+      "desc": "Research for LinkedIn, form a point of view, and write a native post."
+    },
+    {
+      "slug": "xhs-copy",
+      "title": "Break Down Rivals and Draft for Xiaohongshu",
+      "cat": "content",
+      "group": "Write",
+      "source": "closed",
+      "id": "copywriter-xhs-research-breakdown-copy",
+      "desc": "Break down competing Xiaohongshu posts, distill reusable patterns, and draft an original first version."
+    },
+    {
+      "slug": "visual-production",
+      "title": "Produce Visuals for Your Personal Brand",
+      "cat": "content",
+      "group": "Visual",
+      "source": "closed",
+      "id": "personal-ip-visual-production",
+      "desc": "Website illustrations, LinkedIn carousels and explainer graphics."
+    },
+    {
+      "slug": "xhs-cover",
+      "title": "Design Xiaohongshu Covers and Cards",
+      "cat": "content",
+      "group": "Visual",
+      "source": "closed",
+      "id": "designer-xhs-cover-card",
+      "desc": "Turn approved copy into a mobile cover and image card pack."
+    },
+    {
+      "slug": "content-review",
+      "title": "Review Outbound Content Before It Ships",
+      "cat": "content",
+      "group": "Review",
+      "source": "closed",
+      "id": "public-content-review",
+      "desc": "Review outbound content for clarity, positioning, facts, privacy and public risk."
+    },
+    {
+      "slug": "xhs-review",
+      "title": "Check a Xiaohongshu Post Before Publishing",
+      "cat": "content",
+      "group": "Review",
+      "source": "closed",
+      "id": "content-review-xhs-prepublish",
+      "desc": "A pre publish check for Xiaohongshu, facts, tone, platform fit and risk."
+    },
+    {
+      "slug": "distribution",
+      "title": "Package Content for Web, LinkedIn and GitHub",
+      "cat": "content",
+      "group": "Distribute",
+      "source": "closed",
+      "id": "social-distribution-package",
+      "desc": "A distribution pack for the website, LinkedIn and GitHub."
+    },
+    {
+      "slug": "xhs-reminder",
+      "title": "Prepare a Xiaohongshu Post and Reminder",
+      "cat": "content",
+      "group": "Distribute",
+      "source": "closed",
+      "id": "social-xhs-reminder-package",
+      "desc": "A manual publish pack for Xiaohongshu with a reminder, never auto published."
+    },
+    {
+      "slug": "agent-audit",
+      "title": "Audit an Agent System for Antipatterns",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "agent-antipattern-audit",
+      "desc": "Check an AI agent system against 7 common architecture antipatterns, then return a score with fixes in priority order."
+    },
+    {
+      "slug": "error-retrofit",
+      "title": "Give Your Tools a Structured Error Contract",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "structured-error-retrofit",
+      "desc": "Retrofit a tool or MCP with structured errors so a valid empty result no longer reads as failure and each error carries its type."
+    },
+    {
+      "slug": "html-to-app",
+      "title": "Turn One HTML File Into a Mac App",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "html-to-mac-app",
+      "desc": "Package a self contained HTML file into a standalone macOS app you open with a double click."
+    },
+    {
+      "slug": "skill-radar",
+      "title": "Find the Skill Gaps the Market Is Hiring For",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "技能雷达",
+      "pipeline": [
+        "Pull remote job posts",
+        "Extract the skills they ask for",
+        "Compare against your baseline",
+        "Ranked gap list"
+      ]
+    },
+    {
+      "slug": "adaptive-tutor",
+      "title": "Train Until You Can Explain It",
+      "cat": "systems",
+      "group": "",
+      "source": "closed",
+      "id": "adaptive-feynman-tutor",
+      "pipeline": [
+        "Generate a fresh question live",
+        "You explain the idea in your own words",
+        "Judge whether you truly grasp it",
+        "Adapt the next question"
+      ]
+    },
+    {
+      "slug": "vo-script",
+      "title": "Write Voiceover Scripts in Three Languages",
+      "cat": "content",
+      "group": "Write",
+      "source": "closed",
+      "id": "口播网感",
+      "desc": "Write a voiceover script in English, Chinese or Malay with a hook, a paced beat and a selling call to action."
+    },
+    {
+      "slug": "xhs-viral",
+      "title": "Break Down Why Xiaohongshu Posts Go Viral",
+      "cat": "content",
+      "group": "Research",
+      "source": "closed",
+      "id": "小红书爆款拆解",
+      "pipeline": [
+        "Collect top posts in bulk",
+        "Sort them by viral type",
+        "Break down why each took off",
+        "Build a swipe library"
+      ]
+    },
+    {
+      "slug": "linkedin-viral",
+      "title": "Break Down High Engagement LinkedIn Posts",
+      "cat": "content",
+      "group": "Research",
+      "source": "closed",
+      "id": "LinkedIn爆款拆解",
+      "desc": "Take apart LinkedIn posts that drew heavy engagement and distill them into a reusable swipe library."
+    },
+    {
+      "slug": "video-fx",
+      "title": "Trace the Effects Inside a Finished Video",
+      "cat": "content",
+      "group": "Video Craft",
+      "source": "closed",
+      "id": "视频特效拆解",
+      "pipeline": [
+        "Load a finished video",
+        "Spot the effects, transitions and captions",
+        "Trace each back to the editing draft",
+        "Return the real effect names"
+      ]
+    },
+    {
+      "slug": "edit-mining",
+      "title": "Mine Real Editing Drafts for a Playbook",
+      "cat": "content",
+      "group": "Video Craft",
+      "source": "closed",
+      "id": "草稿经验提取",
+      "pipeline": [
+        "Scan the editing draft library",
+        "Read the real cut decisions",
+        "Extract the patterns that repeat",
+        "Build a reusable playbook"
+      ]
+    }
+  ],
+  "total": 50
 }
