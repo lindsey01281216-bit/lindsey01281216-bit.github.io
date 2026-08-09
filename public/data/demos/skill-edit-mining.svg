@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="A pile of editing drafts scanned and mined into structured lesson entries in a knowledge base">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="300" cy="250" rx="190" ry="160" fill="url(#focus)" filter="url(#softGlow)"/>
+  <!-- LEFT: pile of draft files (overlapping doc icons) -->
+  <g fill="#cbe0e8" fill-opacity="0.055" stroke="#cbe0e8" stroke-opacity=".3" stroke-width="1.4" stroke-linejoin="round">
+    <path d="M78 176 L142 176 L160 194 L160 300 L78 300 Z"/>
+    <path d="M96 156 L160 156 L178 174 L178 280 L96 280 Z"/>
+    <path d="M114 136 L178 136 L196 154 L196 260 L114 260 Z"/>
+  </g>
+  <g stroke="#cbe0e8" stroke-opacity=".18" stroke-width="3" stroke-linecap="round">
+    <line x1="128" y1="176" x2="182" y2="176"/><line x1="128" y1="192" x2="170" y2="192"/><line x1="128" y1="208" x2="178" y2="208"/>
+  </g>
+  <!-- scan sweep over pile -->
+  <line x1="70" y1="230" x2="210" y2="230" stroke="#80cde9" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="70" y="130" width="128" height="170" fill="url(#focus)" fill-opacity=".5"/>
+  <!-- CENTER: mining node (magnifier + gear) -->
+  <g>
+    <path d="M196 200 C260 210 300 225 340 240" fill="none" stroke="#80cde9" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M196 250 C260 250 300 250 340 250" fill="none" stroke="#80cde9" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M196 300 C260 290 300 275 340 260" fill="none" stroke="#80cde9" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="378" cy="250" r="34" fill="#cbe0e8" fill-opacity=".07" stroke="#80cde9" stroke-opacity=".6" stroke-width="2"/>
+    <circle cx="372" cy="244" r="16" fill="none" stroke="#80cde9" stroke-opacity=".8" stroke-width="2.2"/>
+    <line x1="384" y1="256" x2="398" y2="270" stroke="#80cde9" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <!-- flow into KB entries -->
+  <path d="M412 250 C450 250 470 235 500 220" fill="none" stroke="#80cde9" stroke-opacity="0.64" stroke-width="2" stroke-linecap="round"/>
+  <path d="M491 216 L500 220 L493 227" fill="none" stroke="#80cde9" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="450" cy="238" r="4" fill="#80cde9" fill-opacity=".9"/>
+  <!-- RIGHT: knowledge base — stacked lesson entries, one per line -->
+  <g>
+    <rect x="504" y="128" width="228" height="244" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+    <line x1="524" y1="150" x2="712" y2="150" stroke="#cbe0e8" stroke-opacity=".2" stroke-width="1.3"/>
+    <g>
+      <circle cx="522" cy="180" r="5" fill="#80cde9" fill-opacity=".9"/>
+      <line x1="538" y1="180" x2="712" y2="180" stroke="#cbe0e8" stroke-opacity="0.22" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="522" cy="212" r="5" fill="#80cde9" fill-opacity=".78"/>
+      <line x1="538" y1="212" x2="690" y2="212" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="522" cy="244" r="5" fill="#80cde9" fill-opacity=".66"/>
+      <line x1="538" y1="244" x2="702" y2="244" stroke="#cbe0e8" stroke-opacity="0.18" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="522" cy="276" r="5" fill="#80cde9" fill-opacity=".54"/>
+      <line x1="538" y1="276" x2="678" y2="276" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="522" cy="308" r="5" fill="#80cde9" fill-opacity=".42"/>
+      <line x1="538" y1="308" x2="696" y2="308" stroke="#cbe0e8" stroke-opacity="0.14" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="522" cy="340" r="5" fill="#80cde9" fill-opacity=".32"/>
+      <line x1="538" y1="340" x2="668" y2="340" stroke="#cbe0e8" stroke-opacity="0.12" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
