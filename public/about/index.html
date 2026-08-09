@@ -49,11 +49,78 @@
         "sameAs": [
           "https://www.linkedin.com/in/jiaqingyang-lindsey/",
           "https://github.com/lindsey01281216-bit"
+        ],
+        "knowsAbout": [
+          "Multi agent system design",
+          "Agent handoff orchestration",
+          "Model driven dynamic routing",
+          "Agent capability boundary governance",
+          "Task decomposition and dispatch",
+          "Context compression",
+          "Memory and lessons library design",
+          "Claude Agent SDK development",
+          "Agent and tool definition",
+          "Model Context Protocol server development",
+          "Prompt and context engineering",
+          "Hallucination control and confidence calibration",
+          "Structured tool I/O contracts",
+          "Human in the loop intervention design",
+          "Agent guardrails and authorization kernel design",
+          "Deterministic tool call enforcement",
+          "Data exfiltration prevention",
+          "Command chain and URL smuggling defense",
+          "Secrets isolation",
+          "Filesystem sandboxing",
+          "RCE and CSRF hardening",
+          "Threat modeling",
+          "Adversarial red teaming",
+          "Hybrid search engine design",
+          "Okapi BM25 ranking",
+          "Dense embeddings",
+          "Reciprocal Rank Fusion",
+          "Deterministic reranking",
+          "CJK aware retrieval",
+          "Token budgeted context assembly",
+          "PII redaction",
+          "RAG evaluation",
+          "LLM as a judge evaluation",
+          "Golden regression testing",
+          "Continuous integration quality gates",
+          "Cross platform data pipelines",
+          "Browser session data extraction",
+          "Framework free Node backend development",
+          "Native macOS app development with Swift and WKWebView",
+          "Docker containerization",
+          "JAMstack edge deployment",
+          "Astro",
+          "Cloudflare Workers",
+          "GitHub Actions",
+          "V8 bytecode source code protection",
+          "FFmpeg",
+          "Whisper",
+          "Text to speech",
+          "Local deployment of image to video models",
+          "GEO and AEO auditing",
+          "Claude Skills authoring",
+          "Local first AI deployment",
+          "Separation of execution and judgment layers",
+          "Data stays in network compliance design",
+          "Semrush"
         ]
       }
     ]
   }
   </script>
+  <!--
+    PENDING LINDSEY CONFIRM — platform integration claims.
+    The original "系统集成 / system integration" list (TikTok Shop API, TikTok Seller Center,
+    Kalodata API, Shopee, Meta Ads, Google Business Profile) is deliberately NOT added to the
+    Person.knowsAbout structured data above, and is NOT written in the visible copy as an
+    "API integration" claim. "Integration" = the API was actually wired up and run through,
+    which only Lindsey can confirm item by item. The visible tech-stack copy phrases this group
+    as day to day platform operation, so nothing unconfirmed is stated as fact.
+    Once confirmed, move the verified items into knowsAbout and (optionally) tighten the copy.
+  -->
   <style>
     :root {
       color-scheme: dark;
@@ -182,6 +249,302 @@
     }
     .about-body p:last-child { margin-bottom: 0; }
 
+    /* ==== About Hero · pipeline map ==== */
+    .hero-map{
+      /* 强调色作用域局限在这里，不进 :root、不撞全局 --ink/--muted/--line */
+      --map-out: #93c5fd;                     /* 蓝色强调（out dark） */
+      --map-out-soft: rgb(147 197 253 / .10); /* 列头浅蓝底 */
+      --map-out-line: rgb(147 197 253 / .35); /* 列头蓝描边 */
+      --map-sup: #5eead4;                     /* 青色支撑层 */
+      --map-sup-soft: rgb(94 234 212 / .08);
+      --map-sup-line: rgb(94 234 212 / .30);
+      --map-face: rgb(255 255 255 / .04);     /* 卡片浅色面，不刺眼 */
+      --map-face-hi: rgb(255 255 255 / .06);
+      --map-radius: 12px;
+      padding-top: clamp(48px, 8vw, 96px);
+      padding-bottom: clamp(40px, 6vw, 72px);
+    }
+
+    .hero-map .map-title{
+      margin: 0 0 10px;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: clamp(1.7rem, 4.2vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .hero-map .map-tagline{
+      margin: 0 0 clamp(28px, 4vw, 44px);
+      font-family: var(--font-ui);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+    }
+
+    /* 整个流程图外框：一层极淡玻璃面，把五个层裹在一起 */
+    .hero-map .map-frame{
+      position: relative;
+      display: grid;
+      gap: clamp(18px, 2.4vw, 28px);
+      padding: clamp(20px, 3vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--map-radius) + 6px);
+      background: var(--glass);
+    }
+
+    /* ---- 顶层 Xiao An 横条：跨全宽浅底圆角 ---- */
+    .hero-map .map-orchestrator{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--map-radius);
+      background: var(--map-face);
+    }
+    .hero-map .map-orchestrator .map-name{
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+    .hero-map .map-orchestrator .map-role{
+      font-family: var(--font-ui);
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* ---- 向下分发连接线：一条竖脊，桌面态可见 ---- */
+    .hero-map .map-spine{
+      justify-self: center;
+      width: 1px;
+      height: clamp(16px, 2.4vw, 26px);
+      margin: -6px 0;
+      background: linear-gradient(to bottom, var(--map-out-line), transparent);
+    }
+
+    /* ---- 四列编号流水线 ---- */
+    .hero-map .map-stages{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(12px, 1.6vw, 20px);
+      align-items: start;
+    }
+    .hero-map .map-stage{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* 列头：蓝色数字 + 蓝色分类标题，浅蓝底圆角条 */
+    .hero-map .map-stage-head{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 9px 14px;
+      border: 1px solid var(--map-out-line);
+      border-radius: var(--map-radius);
+      background: var(--map-out-soft);
+    }
+    .hero-map .map-step-no{
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--map-out-line);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: .8rem;
+      color: var(--map-out);
+    }
+    .hero-map .map-cat{
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: .9rem;
+      line-height: 1.2;
+      color: var(--map-out);
+    }
+
+    /* 卡片组：一列内纵向堆叠 */
+    .hero-map .map-cards{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hero-map .map-card{
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--map-radius);
+      background: var(--map-face);
+      transition: background .25s var(--ease), border-color .25s var(--ease);
+    }
+    .hero-map .map-card:hover{
+      background: var(--map-face-hi);
+      border-color: var(--map-out-line);
+    }
+    .hero-map .map-card .map-name{
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--ink);
+    }
+    .hero-map .map-card .map-role{
+      margin-top: 3px;
+      font-family: var(--font-ui);
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    /* ---- 支撑层横条：青色系跨全宽 ---- */
+    .hero-map .map-support{
+      text-align: center;
+      padding: 15px 20px;
+      border: 1px solid var(--map-sup-line);
+      border-radius: var(--map-radius);
+      background: var(--map-sup-soft);
+    }
+    .hero-map .map-support-title{
+      margin: 0;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: .92rem;
+      line-height: 1.4;
+      color: var(--map-sup);
+    }
+    .hero-map .map-support-sub{
+      margin: 5px 0 0;
+      font-family: var(--font-ui);
+      font-size: .8rem;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+
+    /* ---- 底部金句条：浅底、主句加粗 ---- */
+    .hero-map .map-close{
+      text-align: center;
+      padding: clamp(18px, 2.6vw, 26px) 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--map-radius);
+      background: var(--map-face);
+    }
+    .hero-map .map-close-lead{
+      margin: 0;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+      color: var(--ink);
+    }
+    .hero-map .map-close-sub{
+      margin: 8px auto 0;
+      max-width: 56ch;
+      font-family: var(--font-ui);
+      font-size: .85rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* ==== Technical capabilities · backing section ==== */
+    .tech-stack { padding: clamp(24px, 4vw, 48px) 0 clamp(20px, 3vw, 40px); }
+    .tech-stack .tech-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: rgb(233 240 244 / .9);
+      font-size: 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .tech-stack .tech-eyebrow::before { content: ""; width: 34px; height: 1px; background: rgb(176 217 234 / .45); }
+    .tech-stack .tech-title {
+      margin: 0 0 10px;
+      max-width: 900px;
+      color: var(--ink);
+      font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.16;
+    }
+    .tech-stack .tech-lead {
+      margin: 0 0 clamp(24px, 3.6vw, 38px);
+      max-width: 780px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.62;
+    }
+    .tech-stack .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(12px, 1.6vw, 18px);
+    }
+    .tech-stack .tech-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: clamp(16px, 2vw, 22px);
+      border: 1px solid var(--line);
+      border-radius: var(--map-radius, 12px);
+      background: var(--glass);
+      transition: border-color .25s var(--ease), background .25s var(--ease);
+    }
+    .tech-stack .tech-group:hover {
+      border-color: rgb(147 197 253 / .35);
+      background: rgb(255 255 255 / .03);
+    }
+    .tech-stack .tech-group-head {
+      margin: 0;
+      color: var(--ink);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+    .tech-stack .tech-group-body {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 760px) {
+      .tech-stack .tech-grid { grid-template-columns: 1fr; }
+    }
+
+    /* capability intro blockquote (both tech and marketing blocks) */
+    .tech-stack .tech-quote {
+      margin: 0 0 clamp(24px, 3.6vw, 38px);
+      max-width: 820px;
+      padding: clamp(16px, 2vw, 22px) clamp(18px, 2.2vw, 24px);
+      border-left: 2px solid rgb(147 197 253 / .45);
+      border-radius: 0 var(--map-radius, 12px) var(--map-radius, 12px) 0;
+      background: rgb(255 255 255 / .03);
+      color: var(--muted);
+      font-size: clamp(15px, 1.25vw, 18px);
+      line-height: 1.66;
+      font-style: normal;
+    }
+    .tech-stack .tech-quote strong { color: var(--ink); font-weight: 700; }
+    /* direction note = full width single card under the tech grid */
+    .tech-stack .tech-direction {
+      grid-column: 1 / -1;
+      border-color: rgb(94 234 212 / .30);
+      background: rgb(94 234 212 / .06);
+    }
+    .tech-stack .tech-direction:hover {
+      border-color: rgb(94 234 212 / .45);
+      background: rgb(94 234 212 / .09);
+    }
+    .tech-stack.marketing-stack .tech-quote {
+      border-left-color: rgb(94 234 212 / .45);
+    }
+
     .site-footer { position: relative; z-index: 1; border-top: 1px solid rgb(211 232 239 / .09); margin-top: clamp(40px, 6vw, 80px); }
     .footer-inner { width: min(92vw, 1180px); max-width: none; margin: 0 auto; padding: 34px 0 48px; display: flex; justify-content: space-between; gap: 24px; color: rgb(233 240 244 / .9); font-size: 12px; }
     .footer-links { display: flex; gap: 22px; }
@@ -197,10 +560,17 @@
       .brand-meta { display: none; }
       .brand img { width: 34px; height: 34px; }
       .page-h1 { font-size: clamp(28px, 8vw, 40px); }
+      .hero-map .map-stages{ grid-template-columns: repeat(2, 1fr); }
+      .hero-map .map-spine{ display: none; }
+      .hero-map .map-title{ font-size: clamp(1.5rem, 6vw, 2rem); }
     }
     @media (max-width: 560px) {
       .content-wrap { width: calc(100% - 24px); max-width: none; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
+      .hero-map .map-stages{ grid-template-columns: 1fr; }
+      .hero-map .map-frame{ padding: 16px; }
+      .hero-map .map-support-title,
+      .hero-map .map-support-sub{ font-size: .8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -235,6 +605,173 @@
         <p class="page-eyebrow">About · AI Architect · Malaysia</p>
         <h1 class="page-h1">Who is Lindsey?</h1>
         <p class="page-intro">Lindsey is a full stack marketer turned AI architect based in Malaysia. She builds AI led systems that raise output while cutting cost, delivered as local scripts, company Apps with ERP or CRM, and multi agent teams. Every system runs on your own data, at controlled cost, built and managed by AI.</p>
+      </div>
+    </section>
+
+    <section class="content-section hero-map">
+      <div class="content-wrap reveal">
+        <h1 class="map-title">How Lindsey runs an entire marketing team on her own</h1>
+        <p class="map-tagline">I do not have a team. I built one.</p>
+
+        <div class="map-frame">
+          <div class="map-node map-orchestrator">
+            <span class="map-name">Xiao An</span>
+            <span class="map-role">Orchestration and task routing, across the whole line</span>
+          </div>
+
+          <div class="map-spine" aria-hidden="true"></div>
+
+          <ol class="map-stages">
+            <li class="map-stage">
+              <p class="map-stage-head"><span class="map-step-no">1</span><span class="map-cat">Strategy and topics</span></p>
+              <div class="map-cards">
+                <div class="map-card">
+                  <div class="map-name">Brand strategy lead</div>
+                  <div class="map-role">Brand strategy</div>
+                </div>
+              </div>
+            </li>
+            <li class="map-stage">
+              <p class="map-stage-head"><span class="map-step-no">2</span><span class="map-cat">Content production</span></p>
+              <div class="map-cards">
+                <div class="map-card">
+                  <div class="map-name">Copy lead</div>
+                  <div class="map-role">Ad copy</div>
+                </div>
+                <div class="map-card">
+                  <div class="map-name">Design lead</div>
+                  <div class="map-role">Graphic design</div>
+                </div>
+                <div class="map-card">
+                  <div class="map-name">Video editor</div>
+                  <div class="map-role">Video editing</div>
+                </div>
+              </div>
+            </li>
+            <li class="map-stage">
+              <p class="map-stage-head"><span class="map-step-no">3</span><span class="map-cat">Distribution and reach</span></p>
+              <div class="map-cards">
+                <div class="map-card">
+                  <div class="map-name">Social lead</div>
+                  <div class="map-role">Social media</div>
+                </div>
+                <div class="map-card">
+                  <div class="map-name">Visibility lead</div>
+                  <div class="map-role">SEO and GEO</div>
+                </div>
+              </div>
+            </li>
+            <li class="map-stage">
+              <p class="map-stage-head"><span class="map-step-no">4</span><span class="map-cat">Ads and growth</span></p>
+              <div class="map-cards">
+                <div class="map-card">
+                  <div class="map-name">Media buyer</div>
+                  <div class="map-role">Ad operations</div>
+                </div>
+                <div class="map-card">
+                  <div class="map-name">Data lead</div>
+                  <div class="map-role">Data analysis</div>
+                </div>
+              </div>
+            </li>
+          </ol>
+
+          <div class="map-support">
+            <p class="map-support-title">Review lead · content review lead · build engineer · review engineer</p>
+            <p class="map-support-sub">Quality review · content review and compliance · system development · code review</p>
+          </div>
+
+          <div class="map-close">
+            <p class="map-close-lead">Lindsey. An entire marketing team.</p>
+            <p class="map-close-sub">13 AI agents working together, turning a full day of repetitive operations into a short automated run.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tech-stack">
+      <div class="content-wrap reveal">
+        <p class="tech-eyebrow">AI Architect: Technical Capabilities</p>
+        <h2 class="tech-title">What sits under the team</h2>
+        <blockquote class="tech-quote">Most people who can wire up Claude are engineers who don't know marketing; most who know marketing can't build the agents. I sit on both sides. I run the growth work <strong>and</strong> build the system that runs it.</blockquote>
+
+        <div class="tech-grid">
+          <div class="tech-group">
+            <h3 class="tech-group-head">1. Agent system architecture</h3>
+            <p class="tech-group-body">Multi agent system design, handoff orchestration, and model driven dynamic routing. Capability boundary governance, task decomposition and dispatch, context compression, and the design of memory and lessons libraries.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">2. AI engineering</h3>
+            <p class="tech-group-body">Built on the Claude Agent SDK, defining agents and tools, and shipping my own MCP (Model Context Protocol) servers to expose local capabilities as standard tools. Prompt and context engineering, hallucination control and confidence calibration, structured tool I/O contracts with self healing retries, and human in the loop intervention points.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">3. Agent guardrails &amp; security architecture</h3>
+            <p class="tech-group-body">A deterministic authorization kernel where every tool call, including every sub agent, passes one enforcement chokepoint, classified read / write / danger with a hard floor no autonomous mode can override. Policy lives in code, not in a prompt, so a manipulated model can't talk its way past it: data exfiltration prevention, command chain and URL smuggling defense, secrets isolation, filesystem sandboxing, and RCE / CSRF hardening.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">4. Security assurance &amp; red teaming</h3>
+            <p class="tech-group-body">A formal threat model for the whole autonomous system: trust boundaries, a T1 to T6 threat matrix mapped to code, and honestly tracked residual risks. Backed by an adversarial red team test suite (injection, exfiltration, sandbox escape, secret reads) that asserts every attack is refused.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">5. Retrieval &amp; memory engineering</h3>
+            <p class="tech-group-body">A hybrid search engine written from scratch: Okapi BM25 over an inverted index, dense embeddings, Reciprocal Rank Fusion, and a deterministic reranker, CJK aware, running on a production scale corpus. Layered, token budgeted context assembly, per agent memory scoping with PII redaction, and autonomous nightly memory consolidation gated by human review.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">6. Evaluation &amp; quality engineering</h3>
+            <p class="tech-group-body">Measurement driven, not vibes driven. RAG evals (recall@k, MRR, faithfulness / groundedness, dense vs hybrid A/B), an LLM as a judge harness scoring agent behavior against rubrics and hard red lines, and a golden regression suite, all wired into CI as pass / fail gates.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">7. Platforms &amp; data pipelines</h3>
+            <p class="tech-group-body">Day to day operation across TikTok Shop, TikTok Seller Center, Kalodata, Shopee, Meta Ads, and Google Business Profile. Cross platform pipelines that move that data into the systems I build, including browser session extraction that works against logged in sessions with zero LLM tokens and no dependency on official APIs.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">8. Full stack delivery &amp; deployment</h3>
+            <p class="tech-group-body">End to end: from a framework free, zero dependency Node backend and native front end, to a native macOS app (Swift / WKWebView) with process self healing, to reproducible Docker builds and JAMstack edge deployment (Astro + Cloudflare Workers + GitHub Actions). Including source code protection: compiling to V8 bytecode as a dual artifact release for IP safety.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">9. Media, GEO tooling &amp; content systems</h3>
+            <p class="tech-group-body">FFmpeg, Whisper, text to speech, and local image to video models. Built my own GEO / AEO auditing engine, citability scoring and AI crawler checks, plus multimodal ad authenticity and compliance checking, and Claude Skills authoring at scale (90+ shipped).</p>
+          </div>
+          <div class="tech-group tech-direction">
+            <h3 class="tech-group-head">Architecture direction</h3>
+            <p class="tech-group-body">Local first deployment, execution layer separated from the judgment layer, information barriers between company and personal data, and compliance minded designs where data stays inside the network.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tech-stack marketing-stack">
+      <div class="content-wrap reveal">
+        <p class="tech-eyebrow">Marketing &amp; Growth</p>
+        <h2 class="tech-title">The operator behind the architect</h2>
+        <blockquote class="tech-quote">I didn't come to AI from computer science. I came from running paid media, content, and e commerce by hand, which is why the systems I build actually fit how the work gets done.</blockquote>
+
+        <div class="tech-grid">
+          <div class="tech-group">
+            <h3 class="tech-group-head">1. Paid media &amp; ads management</h3>
+            <p class="tech-group-body">Performance marketing across TikTok Ads, Meta Ads, Google Ads, Shopee Ads, and Lazada Ads, plus TikTok Shop GMV Max. Campaign strategy, creative testing, budget pacing, and ROAS optimization, running ~RM349K/month in ad spend across 11 e commerce clients at a 5.17 blended ROI (11.5 on the top account).</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">2. E commerce operations</h3>
+            <p class="tech-group-body">Day to day operation of TikTok Shop, Shopee, and Lazada stores, listings, GMV growth, KOL and affiliate programs, and brand protection (removed 3,000+ counterfeit SKUs). Grew one Shopee store from RM8K to RM60K monthly (7.5x).</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">3. Content &amp; copywriting</h3>
+            <p class="tech-group-body">Trilingual content, English, 中文, Bahasa Malaysia. Hooks, angles, and platform native copy; deconstructing top performing posts into reusable patterns, then writing from them.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">4. Video production</h3>
+            <p class="tech-group-body">Shooting and editing short form video (CapCut / JianYing) for TikTok and social, script to storyboard to final cut, plus AI assisted generation where it speeds the work.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">5. SEO / GEO / AEO</h3>
+            <p class="tech-group-body">Search and AI search optimization, content strategy, Google Business Profile, Semrush, and E-E-A-T signals. Built the company's first GEO / SEO capability from zero and ran it end to end.</p>
+          </div>
+          <div class="tech-group">
+            <h3 class="tech-group-head">6. Social &amp; web presence</h3>
+            <p class="tech-group-body">Social media management across platforms, plus website design, owning the full funnel from discovery to the page that converts.</p>
+          </div>
+        </div>
       </div>
     </section>
 
