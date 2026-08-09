@@ -1,6 +1,7 @@
 {
  "_readme": "技能公开墙数据源，Skill 工作台自动生成。/case/skill/ 读此渲染。别手改。",
- "generated": "2026-08-09T15:05:13.551Z",
+ "generated": "2026-08-09T15:17:41.954Z",
+ "builtTotal": 54,
  "cats": [
   {
    "key": "systems",
