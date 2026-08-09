@@ -443,7 +443,9 @@
       if(lbl)lbl.innerHTML=lbl.innerHTML.replace(/·\s*\d+\s*skills/i,'&middot; '+cards.length+' skills');
     });
     var total=(m.cards||[]).length;
-    var h1=document.querySelector('.page-h1');if(h1)h1.innerHTML=h1.innerHTML.replace(/^\d+/,total);
+    var built=m.builtTotal||total;   /* H1 显示真实建数（含未上墙），不是卡片数 */
+    var h1=document.querySelector('.page-h1');if(h1)h1.innerHTML=h1.innerHTML.replace(/^\d+/,built);
+    var intro=document.querySelector('.page-intro');if(intro)intro.innerHTML=intro.innerHTML.replace(/\b\d+ in all\b/,built+' in all');
   }).catch(function(e){
     document.querySelectorAll('.demo-mount').forEach(function(el){el.innerHTML='<p style="opacity:.6">Skills are loading… if this persists, view the list at <a href="/case/">case overview</a>.</p>';});
   });
