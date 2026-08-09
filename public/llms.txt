@@ -1,0 +1,38 @@
+# Lindsey Studio
+
+> Lindsey is an AI architect based in Malaysia, a full stack marketer turned AI architect. She builds AI led systems that run locally on a company's own data and own network, raising output while cutting cost. Repetitive workflows run locally at zero token, so spend goes only to the development and judgement layer.
+
+Display name: Lindsey
+Site: https://lindseyaitech.com
+
+## What Lindsey Studio does
+
+Lindsey Studio builds AI led systems that run inside a company's own network on its own data. The core promise is that everyday work runs locally at zero token with zero manual errors, so business data never leaves the company and there is no cloud server to rent. The most common data leak is a staff member pasting sensitive information into a public chat tool, and running the work locally inside your own network avoids that.
+
+## Service tiers and pricing
+
+Three tiers, one idea: AI built around how a company already works. Pricing follows the scale of the work, and the prices below are starting points.
+
+- Tier 1, Skill. From RM399. A Skill automates one employee's daily repetitive workflow and runs fully on your own machine at zero token with zero manual errors. You buy it once and it keeps running, with no subscription and no per use fee.
+- Tier 2, ERP or CRM. From RM4999. A custom company App that covers ERP and CRM functions and is not limited to them. It joins many workflows into one live app on your own data, so your team reads one dashboard instead of scattered spreadsheets.
+- Tier 3, Agent. From RM9999. This is the main offering. One customized company App where every employee works alongside their own agent in plain language. It runs locally over your company wifi, so there is no cloud server to rent and your data stays inside the company. The only ongoing cost is the engine the agents run on. This is the model that runs Lindsey Studio itself.
+
+## Site structure
+
+- Home: https://lindseyaitech.com/
+- About Lindsey: https://lindseyaitech.com/about/
+- Case overview, from one local skill to a full agent team: https://lindseyaitech.com/case/
+- Skill tier detail: https://lindseyaitech.com/case/skill/
+- ERP or CRM system tier detail: https://lindseyaitech.com/case/system/
+- Agent tier detail: https://lindseyaitech.com/case/agent/
+- Live system demo, an executive dashboard: https://lindseyaitech.com/case/system/demo/
+- Live parcel scan demo: https://lindseyaitech.com/case/system/pack-scan/
+
+## Common questions
+
+- Do I need a technical team to run this? No. A Skill installs and then runs itself with zero manual steps. An ERP or CRM gives your team one dashboard instead of scattered spreadsheets.
+- Do I need to buy a server to run the agent system? No. The agent system runs locally over your own company wifi, so there is no cloud server to rent. The only ongoing cost is the engine that powers the agents.
+
+## Scale figures pending
+
+<!-- INTERNAL NOTE, not a published fact: client count, team size, and agent count are disputed across the site (16 vs 11 clients, team of 14, 13 vs 14 agents). Awaiting Lindsey's ruling on the true figures before any number is written here. 待 Lindsey 定口径. -->

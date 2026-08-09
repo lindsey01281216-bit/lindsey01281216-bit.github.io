@@ -1,0 +1,24 @@
+# robots.txt for lindseyaitech.com
+# Purpose: open the site to AI answer engines and search crawlers, and point them to the sitemap.
+
+# AI answer engine crawlers, explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# All other crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://lindseyaitech.com/sitemap.xml
