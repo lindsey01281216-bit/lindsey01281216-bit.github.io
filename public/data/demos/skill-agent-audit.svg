@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Scanning an agent architecture for anti-patterns and producing a scored priority list">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20 .5 .5)">
+      <stop offset="0" stop-color="#141a20"/>
+      <stop offset="1" stop-color="#090c0f"/>
+    </linearGradient>
+    <radialGradient id="focus" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#80cde9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#80cde9" stop-opacity=".055"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#80cde9" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#80cde9" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#80cde9" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#cbe0e8" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+  </g>
+  <ellipse cx="290" cy="250" rx="190" ry="160" fill="url(#focus)" filter="url(#softGlow)"/>
+  <!-- LEFT: agent architecture graph being scanned;青点=被标出的反模式问题 -->
+  <g>
+    <!-- connection lines of the system graph -->
+    <path d="M150 150 C210 175 250 205 290 250" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M150 150 C170 220 175 300 210 360" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M290 250 C245 300 225 335 210 360" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M290 250 C330 210 370 185 420 175" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M210 360 C280 350 350 345 420 330" fill="none" stroke="#80cde9" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- structure nodes -->
+    <circle cx="150" cy="150" r="16" fill="#cbe0e8" fill-opacity=".07" stroke="#cbe0e8" stroke-opacity=".4" stroke-width="1.5"/>
+    <circle cx="290" cy="250" r="22" fill="#cbe0e8" fill-opacity=".08" stroke="#cbe0e8" stroke-opacity=".45" stroke-width="1.6"/>
+    <circle cx="210" cy="360" r="16" fill="#cbe0e8" fill-opacity=".07" stroke="#cbe0e8" stroke-opacity=".4" stroke-width="1.5"/>
+    <circle cx="420" cy="175" r="14" fill="#cbe0e8" fill-opacity=".07" stroke="#cbe0e8" stroke-opacity=".4" stroke-width="1.5"/>
+    <circle cx="420" cy="330" r="14" fill="#cbe0e8" fill-opacity=".07" stroke="#cbe0e8" stroke-opacity=".4" stroke-width="1.5"/>
+    <!-- scan sweep -->
+    <line x1="130" y1="100" x2="130" y2="400" stroke="url(#accentFade)" stroke-width="2" transform="translate(120 0)"/>
+    <line x1="0" y1="250" x2="470" y2="250" stroke="#80cde9" stroke-opacity=".18" stroke-width="1"/>
+    <!-- flagged anti-pattern markers (concentric青点) -->
+    <g>
+      <circle cx="290" cy="250" r="34" fill="none" stroke="#80cde9" stroke-opacity=".3" stroke-width="1.4" stroke-dasharray="3 6"/>
+      <circle cx="290" cy="250" r="6" fill="#80cde9" fill-opacity=".95"/>
+      <circle cx="150" cy="150" r="7" fill="#80cde9" fill-opacity=".95"/><circle cx="150" cy="150" r="14" fill="none" stroke="#80cde9" stroke-opacity=".35" stroke-width="1.2"/>
+      <circle cx="420" cy="330" r="7" fill="#80cde9" fill-opacity=".95"/><circle cx="420" cy="330" r="14" fill="none" stroke="#80cde9" stroke-opacity=".35" stroke-width="1.2"/>
+      <circle cx="210" cy="360" r="4" fill="#80cde9" fill-opacity=".8"/>
+    </g>
+  </g>
+  <!-- RIGHT: score + prioritized fix list -->
+  <g>
+    <rect x="524" y="120" width="212" height="260" rx="12" fill="#cbe0e8" fill-opacity="0.06" stroke="#cbe0e8" stroke-opacity=".30" stroke-width="1.5"/>
+    <!-- score dial -->
+    <circle cx="576" cy="168" r="24" fill="none" stroke="#cbe0e8" stroke-opacity=".18" stroke-width="4"/>
+    <path d="M576 144 A24 24 0 1 1 555 180" fill="none" stroke="#80cde9" stroke-opacity=".82" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="576" cy="168" r="4" fill="#80cde9" fill-opacity=".9"/>
+    <line x1="614" y1="158" x2="712" y2="158" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="5" stroke-linecap="round"/>
+    <line x1="614" y1="176" x2="686" y2="176" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="5" stroke-linecap="round"/>
+    <!-- priority rows -->
+    <g>
+      <rect x="546" y="222" width="10" height="10" rx="2" fill="#80cde9" fill-opacity=".9"/>
+      <line x1="566" y1="227" x2="712" y2="227" stroke="#cbe0e8" stroke-opacity="0.22" stroke-width="4" stroke-linecap="round"/>
+      <rect x="546" y="256" width="10" height="10" rx="2" fill="#80cde9" fill-opacity=".7"/>
+      <line x1="566" y1="261" x2="694" y2="261" stroke="#cbe0e8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+      <rect x="546" y="290" width="10" height="10" rx="2" fill="#80cde9" fill-opacity=".55"/>
+      <line x1="566" y1="295" x2="702" y2="295" stroke="#cbe0e8" stroke-opacity="0.18" stroke-width="4" stroke-linecap="round"/>
+      <rect x="546" y="324" width="10" height="10" rx="2" fill="#80cde9" fill-opacity=".4"/>
+      <line x1="566" y1="329" x2="676" y2="329" stroke="#cbe0e8" stroke-opacity="0.16" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <!-- flow arrow from scan to report -->
+    <path d="M448 250 C480 250 500 235 522 220" fill="none" stroke="#80cde9" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M513 216 L522 220 L515 227" fill="none" stroke="#80cde9" stroke-opacity=".78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
