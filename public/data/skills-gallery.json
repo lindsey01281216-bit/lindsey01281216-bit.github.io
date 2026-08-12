@@ -1,6 +1,6 @@
 {
   "_readme": "技能公开墙数据源，由 Skill 工作台从 gallery-map.json 自动生成。网站 /case/skill/ 读此渲染。别手改——改 gallery-map.json 或工作台。",
-  "generated": "2026-08-09T15:31:19.143Z",
+  "generated": "2026-08-12T09:58:01.294Z",
   "cats": [
     {
       "key": "systems",
@@ -540,5 +540,6 @@
       ]
     }
   ],
-  "total": 50
+  "total": 50,
+  "builtTotal": 54
 }
