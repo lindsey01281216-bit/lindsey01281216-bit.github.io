@@ -6,6 +6,11 @@ function redirect(from,to){const destination=file(from);fs.mkdirSync(path.dirnam
 for(const page of catalog.pages.filter(p=>p.corePath)){
  const source=file(page.corePath);if(!fs.existsSync(source))throw Error('Missing core page '+page.corePath);
  const {document}=parseHTML(fs.readFileSync(source,'utf8'));
+ const title=page.metaTitle||page.title,description=page.metaDescription||page.summary||'',url='https://lindseyaitech.com'+page.path;
+ text(document.querySelector('title'),title);
+ for(const [attribute,name,value]of [['name','description',description],['property','og:title',title],['property','og:description',description],['property','og:url',url],['name','twitter:title',title],['name','twitter:description',description]]){let n=document.querySelector('meta['+attribute+'="'+name+'"]');if(!n){n=document.createElement('meta');n.setAttribute(attribute,name);document.head.append(n);}n.setAttribute('content',value);}
+ let canonical=document.querySelector('link[rel="canonical"]');if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.append(canonical);}canonical.href=url;
+ const schema=document.createElement('script');schema.type='application/ld+json';schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'WebPage','@id':url+'#page',name:title,description,url}).replace(/</g,'\\u003c');document.head.append(schema);
  text(document.querySelector(page.id==='p1'?'.hero-h1':'.page-h1, .section-head .section-title, h1'),page.heading||page.title);
  text(document.querySelector(page.id==='p1'?'.hero-sub':'.page-lede, .page-desc, .section-head .section-lede'),page.summary||'');
  for(const section of page.sections||[]){let node=document.getElementById(section.id);if(!node){node=document.createElement('section');node.id=section.id;node.className='content-section';node.innerHTML='<div class="content-wrap"><h2></h2><p></p></div>';const main=document.querySelector('main')||document.body;main.insertBefore(node,main.querySelector('footer'));}node.hidden=!section.on;text(node.querySelector('h2,h3'),section.title);text(node.querySelector('p'),section.text);if(!section.on)node.setAttribute('style',(node.getAttribute('style')||'')+';display:none!important');}
