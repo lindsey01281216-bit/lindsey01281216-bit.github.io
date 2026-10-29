@@ -1,0 +1,8 @@
+---
+import cms from '../data/website-admin.json';
+import BlogPost from '../layouts/BlogPost.astro';
+export function getStaticPaths(){return [...cms.posts,...cms.works,...cms.pages.filter(p=>!p.corePath)].map(entry=>({params:{cmsPath:entry.path.replace(/^\/|\/$/g,'')},props:{entry}}));}
+const {entry}=Astro.props;
+const frontmatter={...entry,title:entry.title,description:entry.metaDescription||entry.summary||'',pubDate:entry.publishedAt,updatedDate:entry.updatedAt,sitePath:entry.path,bodyHasHeading:true};
+---
+<BlogPost frontmatter={frontmatter} slug={entry.slug}><Fragment set:html={entry.bodyHtml} /></BlogPost>

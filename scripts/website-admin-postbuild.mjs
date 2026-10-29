@@ -1,0 +1,19 @@
+import fs from 'node:fs';import path from 'node:path';import {parseHTML} from 'linkedom';
+const root=process.cwd(),dist=path.join(root,'dist'),catalog=JSON.parse(fs.readFileSync('src/data/website-admin.json','utf8'));
+const file=p=>path.join(dist,p.replace(/^\//,''),'index.html');
+function text(node,value){if(!node)return;node.textContent=value;for(const a of ['data-en','data-zh'])if(node.hasAttribute(a))node.setAttribute(a,value);}
+function redirect(from,to){const destination=file(from);fs.mkdirSync(path.dirname(destination),{recursive:true});fs.writeFileSync(destination,'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url='+to+'"><link rel="canonical" href="https://lindseyaitech.com'+to+'"><a href="'+to+'">Continue</a>');}
+for(const page of catalog.pages.filter(p=>p.corePath)){
+ const source=file(page.corePath);if(!fs.existsSync(source))throw Error('Missing core page '+page.corePath);
+ const {document}=parseHTML(fs.readFileSync(source,'utf8'));
+ text(document.querySelector(page.id==='p1'?'.hero-h1':'.page-h1, .section-head .section-title, h1'),page.heading||page.title);
+ text(document.querySelector(page.id==='p1'?'.hero-sub':'.page-lede, .page-desc, .section-head .section-lede'),page.summary||'');
+ for(const section of page.sections||[]){let node=document.getElementById(section.id);if(!node){node=document.createElement('section');node.id=section.id;node.className='content-section';node.innerHTML='<div class="content-wrap"><h2></h2><p></p></div>';const main=document.querySelector('main')||document.body;main.insertBefore(node,main.querySelector('footer'));}node.hidden=!section.on;text(node.querySelector('h2,h3'),section.title);text(node.querySelector('p'),section.text);if(!section.on)node.setAttribute('style',(node.getAttribute('style')||'')+';display:none!important');}
+ // Reorder whole sections within their original parent, retaining their contents.
+ const groups=new Map();for(const s of page.sections||[]){const n=document.getElementById(s.id);if(n){const list=groups.get(n.parentNode)||[];list.push(n);groups.set(n.parentNode,list);}}for(const [parent,nodes]of groups){const marker=document.createComment('website managed sections');parent.insertBefore(marker,nodes[0]);for(const n of nodes)parent.insertBefore(n,marker);marker.remove();}
+ const dest=file(page.path);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,document.toString());if(page.path!==page.corePath)redirect(page.corePath,page.path);
+}
+for(const r of catalog.redirects||[])redirect(r.from,r.to);
+const home=file('/'),feed=JSON.parse(fs.readFileSync(path.join(dist,'data/blog-feed.json'),'utf8'));
+if(fs.existsSync(home)){const {document}=parseHTML(fs.readFileSync(home,'utf8'));const panel=document.querySelector('#blog .blog-pipeline');if(panel){panel.innerHTML='<h3 style="margin:0 0 20px">Latest posts</h3>';for(const p of feed.posts.slice(0,3)){const a=document.createElement('a');a.href=p.path;a.setAttribute('style','display:block;padding:16px 0;border-top:1px solid #ffffff20;color:inherit;text-decoration:none');if(p.cover?.src){const img=document.createElement('img');img.src=p.cover.src;img.alt=p.cover.alt||'';img.loading='lazy';img.setAttribute('style','width:100%;max-height:170px;object-fit:cover;border-radius:10px;margin-bottom:10px');a.append(img);}const h=document.createElement('strong');h.textContent=p.title;a.append(h);panel.append(a);}fs.writeFileSync(home,document.toString());}}
+const sitemap=path.join(dist,'sitemap.xml');let xml=fs.existsSync(sitemap)?fs.readFileSync(sitemap,'utf8'):'<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';for(const p of [...feed.posts,...catalog.pages,...catalog.works]){const url='https://lindseyaitech.com'+p.path;if(!xml.includes('<loc>'+url+'</loc>'))xml=xml.replace('</urlset>','<url><loc>'+url+'</loc></url></urlset>');}fs.writeFileSync(sitemap,xml);

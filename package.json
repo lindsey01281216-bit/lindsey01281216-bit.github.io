@@ -7,11 +7,12 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/website-admin-postbuild.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.1.3"
+    "astro": "^7.1.3",
+    "linkedom": "0.18.14"
   }
 }

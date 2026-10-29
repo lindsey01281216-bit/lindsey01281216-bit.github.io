@@ -39,7 +39,7 @@
         ? pipelineLine(o.pipeline)
         : '<p class="demo-desc">' + esc(o && o.desc ? o.desc : w.desc) + "</p>";
     var media =
-      o && o.image
+      w.websiteCover ? '<div class="demo-media"><img loading="lazy" src="'+esc(w.websiteCover)+'" alt="'+esc(title)+'"></div>' : o && o.image
         ? '<div class="demo-media"><img src="/data/demos/' + esc(o.image) + '" alt="' + esc(title) + ' demo"></div>'
         : '<div class="demo-media">Demo</div>';
     return (
@@ -48,7 +48,7 @@
       '<div class="demo-body">' +
       '<p class="demo-title">' + esc(title) + "</p>" +
       mid +
-      badge(w) +
+      (w.websitePath?'<a class="demo-gh" href="'+esc(w.websitePath)+'">Open showcase ↗</a>':badge(w)) +
       "</div></div>"
     );
   }
@@ -72,10 +72,14 @@
 
   Promise.all([
     live("works", "/data/works.json", true),
-    live("demos", "/data/demo-copy.json", false)
+    live("demos", "/data/demo-copy.json", false),
+    fetch("/data/website-admin-works.json",{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))
   ])
     .then(function (res) {
       var data = res[0];
+      var managed=(res[2]&&res[2].works)||[];
+      data.works=(data.works||[]).filter(w=>!managed.some(m=>m.sourceName===w.name||m.title===w.name)).concat(managed.map(m=>({name:m.title,type:m.category==='系统'?'system':m.category.toLowerCase(),desc:m.summary,source:'closed',websitePath:m.path,websiteCover:m.cover&&m.cover.src})));
+
       var copy = res[1] || {};
       var counts = data.inventory || data.tally || {};
       document.querySelectorAll("[data-tally]").forEach(function (el) {

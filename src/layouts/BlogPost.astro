@@ -1,10 +1,10 @@
 ---
 const { frontmatter, slug } = Astro.props;
 const site = 'https://lindseyaitech.com';
-const url = `${site}/blog/${slug}/`;
+const url = site + (frontmatter.sitePath || `/blog/${slug}/`);
 const headline = frontmatter.headline || frontmatter.title;
 const metaTitle = frontmatter.metaTitle || `${frontmatter.title} | Lindsey`;
-const img = `${site}/logo_app_website.png`;
+const img = frontmatter.cover?.src ? site + frontmatter.cover.src : `${site}/logo_app_website.png`;
 const pub = (frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)).toISOString().slice(0, 10);
 const upd = frontmatter.updatedDate
   ? (frontmatter.updatedDate instanceof Date ? frontmatter.updatedDate : new Date(frontmatter.updatedDate)).toISOString().slice(0, 10)
@@ -31,6 +31,7 @@ const graph = [
     "author": { "@type": "Person", "name": "Lindsey", "jobTitle": "AI Architect", "url": `${site}/` },
     "publisher": { "@type": "Person", "name": "Lindsey" },
     "mainEntityOfPage": url,
+    ...(frontmatter.cover?.src ? { image: img } : {}),
   },
 ];
 if (frontmatter.faq && frontmatter.faq.length) {
@@ -78,6 +79,10 @@ const jsonld = { "@context": "https://schema.org", "@graph": graph };
     .art-h1 { margin:0; color:var(--ink); font-size:clamp(30px,4.2vw,50px); font-weight:500; letter-spacing:.01em; line-height:1.14; }
     .art-meta { margin:18px 0 0; color:rgb(233 240 244 / .9); font-size:13px; letter-spacing:.02em; }
     .article-body { margin-top:36px; }
+    .article-body :global(h1) {font-size:clamp(30px,4.2vw,50px);font-weight:500;line-height:1.14;margin:0 0 30px;}
+    .article-body :global(img) {max-width:100%;height:auto;display:block;margin:0 auto;}
+    .article-body :global(figure) {margin:30px 0;}
+    .article-body :global(figcaption) {font-size:13px;text-align:center;opacity:.7;}
     /* ══ 文章版式约定（26-08-04 Lindsey 实机看过后定的，改之前先读这段）══════
        这几个值不是随手填的，每条都对应她指出来的一个具体问题。要动先问她。
 
@@ -140,7 +145,7 @@ const jsonld = { "@context": "https://schema.org", "@graph": graph };
     <article class="content-section" style="padding-top:clamp(46px,8vw,90px)">
       <div class="article-wrap reveal">
         <p class="art-eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a>{frontmatter.kicker ? ` · ${frontmatter.kicker}` : ''}</p>
-        <h1 class="art-h1">{frontmatter.title}</h1>
+        <h1 class="art-h1" hidden={frontmatter.bodyHasHeading}>{frontmatter.title}</h1>
         {frontmatter.metaLine && <p class="art-meta">{frontmatter.metaLine}</p>}
         <div class="article-body">
           <slot />

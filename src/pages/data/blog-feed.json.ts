@@ -1,0 +1,3 @@
+import {getCollection} from 'astro:content';
+import cms from '../../data/website-admin.json';
+export async function GET(){const legacy=(await getCollection('blog')).filter(p=>!cms.posts.some(e=>e.sourceId===p.id)).map(p=>({id:p.id,title:p.data.title,description:p.data.description,path:`/blog/${p.id}/`,publishedAt:p.data.pubDate.toISOString(),cover:null}));return new Response(JSON.stringify({revision:cms.revision,posts:[...legacy,...cms.posts.map(p=>({id:p.id,title:p.title,description:p.metaDescription,path:p.path,publishedAt:p.publishedAt,cover:p.cover}))].sort((a,b)=>new Date(b.publishedAt).valueOf()-new Date(a.publishedAt).valueOf())}),{headers:{'Content-Type':'application/json'}});}

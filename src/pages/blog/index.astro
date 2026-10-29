@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-const posts = (await getCollection('blog')).sort(
+import cms from '../../data/website-admin.json';
+const posts = [...(await getCollection('blog')).filter(p=>!cms.posts.some(e=>e.sourceId===p.id)),...cms.posts.map(e=>({id:e.id,data:{title:e.title,description:e.metaDescription,metaTitle:e.metaTitle,pubDate:new Date(e.publishedAt),sitePath:e.path,cover:e.cover,cardKicker:'Blog'}}))].sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const site = 'https://lindseyaitech.com';
@@ -14,10 +15,10 @@ const blogSchema = {
   "publisher": { "@type": "ProfessionalService", "@id": `${site}/#studio`, "name": "Lindsey" },
   "blogPost": posts.map((p) => ({
     "@type": "BlogPosting",
-    "@id": `${site}/blog/${p.id}/#post`,
+    "@id": `${site}${p.data.sitePath || `/blog/${p.id}/`}#post`,
     "headline": p.data.headline || p.data.title,
     "description": p.data.description,
-    "url": `${site}/blog/${p.id}/`,
+    "url": `${site}${p.data.sitePath || `/blog/${p.id}/`}`,
     "inLanguage": "en",
     "author": { "@type": "Person", "@id": `${site}/#lindsey`, "name": "Lindsey" },
     "publisher": { "@type": "ProfessionalService", "@id": `${site}/#studio`, "name": "Lindsey" }
@@ -499,7 +500,8 @@ const blogSchema = {
           </div>
           <div class="post-grid">
           {posts.map((p) => (
-            <a class="post-card" href={`/blog/${p.id}/`}>
+            <a class="post-card" href={p.data.sitePath || `/blog/${p.id}/`}>
+              {p.data.cover?.src && <img src={p.data.cover.src} alt={p.data.cover.alt || ""} loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:18px" />}
               <span class="post-card-kicker">{p.data.cardKicker || p.data.kicker}</span>
               <span class="post-card-title">{p.data.title}</span>
               <p class="post-card-desc">{p.data.cardDescription || p.data.description}</p>
